@@ -69,6 +69,6 @@ add_subdirectory(wayland-sessions)
 # lxqt-module for lxqt-panelloader
 add_subdirectory(autostart)
 
-#install(DIRECTORY "wallpaper/" DESTINATION "${LXQT_GRAPHICS_DIR}")
-#add_subdirectory(wallpaper)
+# wallpaper
+add_subdirectory(wallpaper)
 

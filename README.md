@@ -26,8 +26,10 @@ sudo make install
 
 ## Notes
 
-* In "Session settings" uncheck "lxqt-panel" module and check "lxqt-panelloader" in order to use different settings
+* In "Session settings" uncheck "lxqt-panel" module and check "Panel X11/Wayland" in order to use different settings
 for `lxqt-panel` on wayland.
+* Some X11-only applications (example redshift) in autostart can lead to issues under wayland
+* Options for labwc are handled in `~/.config/lxqt-wayland/labwc/`
 * Don't use bottom positions for notifications (multiple notifications are going out of screen).
 * Shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`
 * Some panel plugins do not work on wayland, see [lxqt-panel]().
