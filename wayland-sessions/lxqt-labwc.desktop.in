@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=LXQt labwc
+Comment=LXQt labwc Session
+Exec=startlxqtlabwc
+Type=Application
+

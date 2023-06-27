@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!--
+  This is a very basic config file for labwc with LXQt with many options missing. For a complete
+  set of options with comments, see docs/rc.xml.all
+  Theme "Vent-dark" has to be copied to ~/.local/share/themes/Vent-dark"
+-->
+
+<labwc_config>
+
+  <core>
+    <gap>10</gap>
+  </core>
+
+ <theme>
+    <name></name>
+    <cornerRadius>10</cornerRadius>
+    <font place="ActiveWindow">
+      <name>sans</name>
+      <size>13</size>
+      <slant>normal</slant>
+      <weight>bold</weight>
+    </font>
+    <font place="MenuItem">
+      <name>sans</name>
+      <size>12</size>
+      <slant>normal</slant>
+      <weight>normal</weight>
+    </font>
+    <font place="OnScreenDisplay">
+      <name>sans</name>
+      <size>13</size>
+      <slant>normal</slant>
+      <weight>normal</weight>
+    </font>
+  </theme>
+
+  <keyboard>
+    <default />
+    <!-- Reload config -->
+    <keybind key="C-S-r">
+      <action name="Reconfigure"/>
+    </keybind>
+    <!-- LXQt Keybindings -->
+    <keybind key="W-Return">
+      <action name="Execute" command="qterminal" />
+    </keybind>
+    <keybind key="W-p">
+      <action name="Execute" command="pcmanfm-qt" />
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute" command="fpad" />
+    </keybind>
+    <keybind key="A-Space">
+      <action name="Execute" command="lxqt-runner" />
+    </keybind>
+    <keybind key="A-F2">
+      <action name="Execute" command="lxqt-runner" />
+    </keybind>
+    <keybind key="F12">
+      <action name="Execute" command="wlrctl toplevel focus qterminal" />
+    </keybind>
+  </keyboard>
+
+  <mouse>
+    <default />
+    <!-- Show a custom menu on desktop right click -->
+    <context name="Root">
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="some-custom-menu" />
+      </mousebind>
+    </context>
+  </mouse>
+
+  <!-- LXQt settings -->
+  <!-- space for top panel -->
+  <margin top="38"/>
+
+  <!-- positions for lxqt-runner and notifications-->
+  <regions>
+    <region name="notifications" x="70%" y="0%" height="50%" width="50%"/>
+    <region name="runner" x="40%" y="20%" height="1%" width="20%"/>
+  </regions>
+  <!-- lxqt rules -->
+  <windowRules>
+    <windowRule identifier="lxqt-panel" skipTaskbar="yes" skipWindowSwitcher="yes" MatchOnce="true">
+      <action name="ToggleAlwaysOnTop"/>
+      <action name="MoveTo" x="0" y="0"/>
+    </windowRule>
+    <windowRule identifier="lxqt-runner" skipTaskbar="yes" skipWindowSwitcher="yes">
+      <action name="ToggleAlwaysOnTop"/>
+      <action name="SnapToRegion" region="runner"/>
+    </windowRule>
+    <windowRule title="pcmanfm-desktop*" skipTaskbar="yes" skipWindowSwitcher="yes">
+      <action name="ToggleAlwaysOnBottom"/>
+      <action name="Maximize"/>
+    </windowRule>
+    <windowRule identifier="lxqt-notificationd" skipTaskbar="yes" skipWindowSwitcher="yes">
+      <action name="SnapToRegion" region="notifications"/>
+    </windowRule>
+  </windowRules>
+
+
+</labwc_config>

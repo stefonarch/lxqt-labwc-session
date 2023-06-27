@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+TryExec=lxqt-panelloader
+Exec=lxqt-panelloader
+OnlyShowIn=LXQt;
+X-LXQt-Module=true
+
+Name=Panel X11/Wayland
+Name[it]=Panello X11/Wayland
