@@ -1,14 +1,15 @@
-# lxqt-wayland-session
+# lxqt-labwc-session
 
 Files for a LXQt wayland session using the labwc compositor. Settings for waybar's wlr/taskbar and [yatbfw]() panel are also provided.
 
-Use your display manager to start the session. Starting `startlxqtlabwc` from tty should work too.
+Use your display manager to start the session. `startlxqtlabwc` from tty should work too.
 
 ## Requisites
 
 * LXQt version 1.3
 * [labwc-git](https://github.com/labwc/labwc)
-* [lxqt-notificationd-wip]()
+* [lxqt-notificationd-wip](https://github.com/stefonarch/lxqt-notificationd/tree/wip_layer_shell_qt) for better experience with `lxqt-notificationd` (optional)
+* waybar (needed as taskmanager)
 
 ## Installation
 
@@ -25,8 +26,8 @@ sudo make install
 
 ## Notes
 
-* In `session settings` uncheck "lxqt-panel" module and check "lxqt-panelloader" in order to use different settings
-for the lxqt-panel on wayland.
+* In "Session settings" uncheck "lxqt-panel" module and check "lxqt-panelloader" in order to use different settings
+for `lxqt-panel` on wayland.
 * Don't use bottom positions for notifications (multiple notifications are going out of screen).
 * Shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`
 * Some panel plugins do not work on wayland, see [lxqt-panel]().
