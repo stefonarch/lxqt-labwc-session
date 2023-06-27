@@ -8,8 +8,12 @@ Use your display manager to start the session. `startlxqtlabwc` from tty should 
 
 * LXQt version 1.3
 * [labwc-git](https://github.com/labwc/labwc)
+* waybar (default) or yatbfw (needed as taskmanager)
 * [lxqt-notificationd-wip](https://github.com/stefonarch/lxqt-notificationd/tree/wip_layer_shell_qt) for better experience with `lxqt-notificationd` (optional)
-* waybar (needed as taskmanager)
+* [lxqt-wlogout](https://github.com/stefonarch/lxqt-wlogout) for complete logout (optional)
+* swaybg, swaylock, swayidle for screen locking and background (optional)
+
+
 
 ## Installation
 
@@ -26,13 +30,13 @@ sudo make install
 
 ## Notes
 
-* In "Session settings" uncheck "lxqt-panel" module and check "Panel X11/Wayland" in order to use different settings
-for `lxqt-panel` on wayland.
-* Some X11-only applications (example redshift) in autostart can lead to issues under wayland
-* Options for labwc are handled in `~/.config/lxqt-wayland/labwc/`
+* In "Session settings" uncheck the "Panel" module and check "Panel X11/Wayland" in order to use different settings
+for `lxqt-panel` on wayland. Panels with a "Desktop switch" widget will crash - do not add it.
+* Some X11-only applications (example redshift) in autostart can lead to issues under wayland.
+* Options for labwc are handled in `~/.config/lxqt-wayland/labwc/`.
 * Don't use bottom positions for notifications (multiple notifications are going out of screen).
-* Shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`
-* Some panel plugins do not work on wayland, see [lxqt-panel]().
+* Shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
+* Some panel plugins do not work on wayland, see [lxqt-panel](https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md) for more information.
 
 
 
