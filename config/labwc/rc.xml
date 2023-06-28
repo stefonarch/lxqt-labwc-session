@@ -13,7 +13,7 @@
   </core>
 
  <theme>
-    <name></name>
+    <name>Vent</name>
     <cornerRadius>10</cornerRadius>
     <font place="ActiveWindow">
       <name>sans</name>

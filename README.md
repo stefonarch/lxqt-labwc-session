@@ -1,6 +1,6 @@
 # lxqt-labwc-session
 
-Files for a LXQt wayland session using the labwc compositor. Settings for waybar's wlr/taskbar and [yatbfw]() panel are also provided.
+Files for a LXQt wayland session using the labwc compositor. Settings for waybar's wlr/taskbar and [yatbfw]() panel are also provided. Does not interfere with existing X11 LXQt sessions.
 
 Use your display manager to start the session. `startlxqtlabwc` from tty should work too.
 

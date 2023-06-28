@@ -72,3 +72,6 @@ add_subdirectory(autostart)
 # wallpaper
 add_subdirectory(wallpaper)
 
+# openbox themes
+add_subdirectory(themes)
+
