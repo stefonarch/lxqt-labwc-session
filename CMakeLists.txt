@@ -60,11 +60,14 @@ install(FILES
     COMPONENT Runtime
 )
 
+install(FILES
+    lxqt-labwc.desktop
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/wayland-sessions"
+    COMPONENT Runtime
+)
+
 # default config files for compositors
 add_subdirectory(config)
-
-# wayland *.desktop files for display managers
-add_subdirectory(wayland-sessions)
 
 # lxqt-module for lxqt-panelloader
 add_subdirectory(autostart)
