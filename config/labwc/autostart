@@ -1,7 +1,9 @@
-# Example autostart file
+# Example autostart file for a labwc LXQt session
+# Applications started here won't be closed by `lxqt-leave --logout` and settings can be lost
 
 # Set background color or image:
 swaybg -i /usr/share/lxqt/wallpapers/origami-dark-labwc.png  >/dev/null 2>&1 &
+
 # Faster startup for GTK apps:
 dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null 2>&1 &
 
@@ -14,15 +16,15 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null
 #   }
 # kanshi >/dev/null 2>&1 &
 
-# Launch a panel containing a systray - waybar is recommended, lxqt-panel lacks taskbar which can be provided by waybar or yatbfw
-waybar -c ~/.config/waybar/taskbar.config -s ~/.config/waybar/lxqt-style.css >/dev/null 2>&1 &
+# Launch a bottom panel with a taskbar (not provided yet by lxqt-panel)
+# waybar: text and icons || yatbwf: only icons
+waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s ~/.config/waybar/lxqt-style.css >/dev/null 2>&1 &
+#yatbfw -c $XDG_CONFIG_HOME/yatbfw-taskbar.json
 
-#lxqt-panel -c  $XDG_CONFIG_HOME/lxqt-wayland/panel.conf >/dev/null 2>&1 &
-
-# Enable notifications. Typically GNOME/KDE application notifications go
-# through the org.freedesktop.Notifications D-Bus API and require a client such
-# as mako to function correctly. Thunderbird is an example of this.
+# Enable alternative notifications instead of lxqt-notificationd
+# (can be configured also in LXQt autostart)
 # mako >/dev/null 2>&1 &
+# dunst >/dev/null 2>&1 &
 
 # Lock screen after 5 minutes; turn off display after another 5 minutes.
 #
@@ -31,6 +33,7 @@ waybar -c ~/.config/waybar/taskbar.config -s ~/.config/waybar/lxqt-style.css >/d
 # `wlr-randr --output <whatever> --off` because this re-arranges views
 # (since a837fef). Instead use a wlr-output-power-management client such as
 # https://git.sr.ht/~leon_plickat/wlopm
+# (can be configured also in LXQt autostart)
 swayidle -w \
 	timeout 300 'swaylock -f -c 000000' \
 	timeout 600 'wlopm --off \*' \

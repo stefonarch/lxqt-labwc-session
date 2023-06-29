@@ -7,11 +7,11 @@
   "font_size" : 20,
   /* "color" and "background_color" must be set with number from 0.0 to 1.0 [red, green, blue]*/
   "color" : [1.0 ,1.0 ,1.0],
-  	"background_color" : [0.2, 0.2, 0.2],
+  	"background_color" : [0.1, 0.1, 0.1],
   /*"size" of taskbar in pixels. If not set, default size is 49 pixels*/
-  "size" : 47,
+  "size" : 48,
   /*The taskbar can be overlayed by other windows. Default "exclusive_zone" is "size"*/
-  "exclusive_zone" : 50,
+  "exclusive_zone" : 48,
   /*"position" values allowed are "top" and "bottom". Default is "bottom"*/
   "position" : "bottom",
   /*
@@ -57,43 +57,8 @@
     */
 
    "start_items" : [
-    {
-      "type" : "launcher",
-      "icon" : "lxqt-about",
-      "tooltip" : "Launcher",
-      "exec" : "lxqt-runner"
-    },
-        {
-      "type" : "launcher",
-      "icon" : "firefox",
-      "tooltip" : "Firefox",
-      "exec" : "firefox"
-    },
-     {
-      "type" : "launcher",
-      "icon" : "system-shutdown",
-      "tooltip" : "Esci",
-      "exec" : "lxqt-wlogout"
-    },
-    {
-      "type" : "launcher",
-      "icon" : "featherpad",
-      "tooltip": "Featherpad",
-      "exec" : "featherpad"
-    },
-    {
-      "type" : "launcher",
-      "icon" : "user-desktop",
-      "tooltip": "Lower inactive windows",
-      "exec" : "wlrctl toplevel minimize state:inactive"
-    },
-
   ],
   "end_items" : [
-    {
-      "type" : "clock",
-      "time_format" : "%A %e %B %k:%M",
-      "exec" : "kalendar"
-    }
+
   ]
 }

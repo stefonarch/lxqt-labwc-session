@@ -84,7 +84,7 @@ if [[ ! -f "$XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf" ]]
    cp /usr/share/lxqt/wayland/panel-wayland.conf "$XDG_CONFIG_HOME"/lxqt-wayland/
 fi
 
-# Copy waybar taskbar settings
+# Copy waybar and yatbfw taskbar settings
 mkdir -p $XDG_CONFIG_HOME/waybar
 
 if [[ ! -f "$XDG_CONFIG_HOME/waybar/taskbar.config" ]]
@@ -94,6 +94,10 @@ fi
 if [[ ! -f "$XDG_CONFIG_HOME/waybar/lxqt-style.css" ]]
    then
    cp /usr/share/lxqt/wayland/waybar/lxqt-style.css "$XDG_CONFIG_HOME"/waybar/
+fi
+if [[ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ]]
+   then
+   cp /usr/share/lxqt/wayland/yatbfw-taskbar.json "$XDG_CONFIG_HOME"/
 fi
 
 export WAYLAND_COMPOSITOR=labwc
