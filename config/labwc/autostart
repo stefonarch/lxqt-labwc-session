@@ -1,7 +1,8 @@
 # Example autostart file for a labwc LXQt session
 # Applications started here won't be closed by `lxqt-leave --logout` and settings can be lost
+# Preferred place for starting wayland-only applications
 
-# Set background color or image:
+# Set background color or image (below the desktop)):
 swaybg -i /usr/share/lxqt/wallpapers/origami-dark-labwc.png  >/dev/null 2>&1 &
 
 # Faster startup for GTK apps:
@@ -18,25 +19,29 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null
 
 # Launch a bottom panel with a taskbar (not provided yet by lxqt-panel)
 # waybar: text and icons || yatbwf: only icons
+
 waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s ~/.config/waybar/lxqt-style.css >/dev/null 2>&1 &
-#yatbfw -c $XDG_CONFIG_HOME/yatbfw-taskbar.json
+#yatbfw -c $XDG_CONFIG_HOME/yatbfw-taskbar.json >/dev/null 2>&1 &
 
 # Enable alternative notifications instead of lxqt-notificationd
-# (can be configured also in LXQt autostart)
+# (can be configured also in LXQt Session Settings → autostart)
 # mako >/dev/null 2>&1 &
 # dunst >/dev/null 2>&1 &
 
-# Lock screen after 5 minutes; turn off display after another 5 minutes.
+# Turn off display(s) after 10 minutes
 #
 # Note that in the context of idle system power management, it is *NOT* a good
 # idea to turn off displays by 'disabling outputs' for example by
 # `wlr-randr --output <whatever> --off` because this re-arranges views
 # (since a837fef). Instead use a wlr-output-power-management client such as
 # https://git.sr.ht/~leon_plickat/wlopm
-# (can be configured also in LXQt autostart)
+#
+# (Suspending time can be configured in LXQt power management settings)
 swayidle -w \
-	timeout 300 'swaylock -f -c 000000' \
 	timeout 600 'wlopm --off \*' \
 	resume 'wlopm --on \*' \
 	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+
+Lock screen on resume, no display(s) turned off
+# swayidle -w before-sleep 'swaylock -f -c 000000'
 

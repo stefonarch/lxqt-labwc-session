@@ -81,8 +81,11 @@
     <region name="notifications" x="70%" y="0%" height="50%" width="50%"/>
     <region name="runner" x="40%" y="20%" height="1%" width="20%"/>
   </regions>
-  <!-- lxqt rules -->
+  <!-- LXQt rules -->
   <windowRules>
+    <!-- For both a top and a left panel, if desired, remove MatchOnce="true".
+    Panel configuration windows will open at top left corner using this setting.
+    Other positions are not recommended -->
     <windowRule identifier="lxqt-panel" skipTaskbar="yes" skipWindowSwitcher="yes" MatchOnce="true">
       <action name="ToggleAlwaysOnTop"/>
       <action name="MoveTo" x="0" y="0"/>

@@ -3,7 +3,19 @@
 if
    [ "$XDG_SESSION_TYPE" = "wayland" ];
    then
-   exec  lxqt-panel -c $XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf
+      if pgrep -x "lxqt-panel" > /dev/null; then
+         notify-send -a  "LXQt Panel Wayland" -i dialog-warning "Another lxqt-panel is already running, please check your module settings and make sure only 'Panel X11/Wayland' is enabled and running";
+         lxqt-config-session
+         exit 0
+      else
+         exec  lxqt-panel -c $XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf
+     fi
 else
-   exec lxqt-panel
+      if pgrep -x "lxqt-panel" > /dev/null; then
+         notify-send -a  "LXQt Panel Wayland" -i dialog-warning "Another lxqt-panel is already running, please check your module settings and make sure only 'Panel X11/Wayland' is enabled and running";
+         lxqt-config-session
+         exit 0
+      else
+         exec lxqt-panel
+      fi
 fi

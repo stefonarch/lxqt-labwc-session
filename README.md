@@ -1,6 +1,6 @@
 # lxqt-labwc-session
 
-Files for a LXQt wayland session using the labwc compositor. Settings for waybar's wlr/taskbar and [yatbfw]() panel are also provided. Does not interfere with existing X11 LXQt sessions.
+Files for an experimental LXQt wayland session using the labwc compositor. Settings for waybar's wlr/taskbar or [yatbfw](https://github.com/selairi/yatbfw) panel are also provided. *Should* not interfere with existing X11 LXQt sessions.
 
 Use your display manager to start the session. `startlxqtlabwc` from tty should work too.
 
@@ -29,12 +29,13 @@ For arch based distributions an [AUR]() packages is available.
 
 ## Notes
 
-* In "Session Settings" uncheck the "Panel" module and check "Panel X11/Wayland" in order to use different settings
-for `lxqt-panel` on wayland. Panels with a "Desktop switch" widget will crash - so do not add it.
+* In "Session Settings" **uncheck** the "Panel" module and check only "Panel X11/Wayland" in order to use different settings for `lxqt-panel` on wayland. Panels with a "Desktop switch" widget will crash - so do not add it.
+* LXQt lock settings do not work yet. For screenlock settings under wayland please check `~/.config/lxqt-wayland/labwc/autostart`.
 * Some X11-only applications (example: redshift) in autostart can lead to high CPU usage under wayland.
-* Options for labwc are handled in `~/.config/lxqt-wayland/labwc/`.
+* All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`.
 * Don't use bottom positions for notifications (multiple notifications will go out of screen).
 * Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
+* Refer also to this file for some lxqt-settings (e.g. positions)
 * Some panel plugins do not work on wayland, see [lxqt-panel](https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md) for more information.
 
 
