@@ -3,29 +3,7 @@
 if
    [ "$XDG_SESSION_TYPE" = "wayland" ];
    then
-      if find "$XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf" -mmin -2 | grep -q .; then
-         notify-send -a  "LXQt Panel Wayland" -i dialog-warning "Please check your module settings and make sure only 'Panel X11/Wayland' is enabled and running";
-         lxqt-config-session
-      else
-         if pgrep -x "lxqt-panel" > /dev/null; then
-            notify-send -a  "LXQt Panel Wayland" -i dialog-warning "Another lxqt-panel is already running, please check your module settings and make sure only 'Panel X11/Wayland' is enabled and running";
-            lxqt-config-session
-            exit 0
-         else
-            exec  lxqt-panel -c $XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf
-         fi
-     fi
+     exec  lxqt-panel -c $XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf
 else
-      if pgrep -x "lxqt-panel" > /dev/null; then
-         notify-send -a  "LXQt Panel Wayland" -i dialog-warning "Another lxqt-panel is already running, please check your module settings and make sure only 'Panel X11/Wayland' is enabled and running";
-         lxqt-config-session
-         exit 0
-      else
-         exec lxqt-panel
-      fi
-fi
-
-
-
-    echo "The file $file_path is not older than 2 minutes."
+     exec lxqt-panel
 fi

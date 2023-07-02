@@ -93,7 +93,7 @@ if [[ ! -f "$XDG_CONFIG_HOME/waybar/taskbar.config" ]]
 fi
 if [[ ! -f "$XDG_CONFIG_HOME/waybar/lxqt-style.css" ]]
    then
-   cp /usr/share/lxqt/wayland/waybar/lxqt-style.css "$XDG_CONFIG_HOME"/waybar/
+   cp /usr/share/lxqt/wayland/waybar/lxqt*.css "$XDG_CONFIG_HOME"/waybar/
 fi
 if [[ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ]]
    then
