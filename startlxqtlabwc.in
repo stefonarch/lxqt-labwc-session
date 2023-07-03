@@ -69,17 +69,16 @@ export XDG_CURRENT_DESKTOP="LXQt"
 #export $(cat "$XDG_CONFIG_HOME"/lxqt/lxqt-config-locale.conf |grep LANG)
 #export $(cat "$XDG_CONFIG_HOME"/lxqt/session.conf |grep QT_SCALE_FACTOR)
 
-# Create lxqt-wayland settings directory if not existing
-mkdir -p $XDG_CONFIG_HOME/lxqt-wayland
 
 # Copy default lxqt-labwc configuration if not existing
-if [[ ! -d "$XDG_CONFIG_HOME/lxqt-wayland/labwc" ]]
+if [ ! -d "$XDG_CONFIG_HOME/lxqt-wayland/labwc" ];
    then
+   mkdir -p $XDG_CONFIG_HOME/lxqt-wayland
    cp -a /usr/share/lxqt/wayland/labwc "$XDG_CONFIG_HOME"/lxqt-wayland/
 fi
 
 # Copy lxqt-wayland-panel.conf if not existing
-if [[ ! -f "$XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf" ]]
+if [ ! -f "$XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf" ];
    then
    cp /usr/share/lxqt/wayland/panel-wayland.conf "$XDG_CONFIG_HOME"/lxqt-wayland/
 fi
@@ -87,15 +86,12 @@ fi
 # Copy waybar and yatbfw taskbar settings
 mkdir -p $XDG_CONFIG_HOME/waybar
 
-if [[ ! -f "$XDG_CONFIG_HOME/waybar/taskbar.config" ]]
+if [ ! -f "$XDG_CONFIG_HOME/waybar/taskbar.config" ];
    then
    cp /usr/share/lxqt/wayland/waybar/taskbar.config "$XDG_CONFIG_HOME"/waybar/
-fi
-if [[ ! -f "$XDG_CONFIG_HOME/waybar/lxqt-style.css" ]]
-   then
    cp /usr/share/lxqt/wayland/waybar/lxqt*.css "$XDG_CONFIG_HOME"/waybar/
 fi
-if [[ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ]]
+if [ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ];
    then
    cp /usr/share/lxqt/wayland/yatbfw-taskbar.json "$XDG_CONFIG_HOME"/
 fi
@@ -105,8 +101,6 @@ export WAYLAND_COMPOSITOR=labwc
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
-
-# Grim (screenshots)
 
 # Start the compositor
 exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc -s lxqt-session

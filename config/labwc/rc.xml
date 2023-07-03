@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  This is a very basic config file for labwc with LXQt with many options missing. For a complete
-  set of options with comments, see docs/rc.xml.all
-  Theme "Vent-dark" has to be copied to ~/.local/share/themes/Vent-dark"
+  This is a basic config file for labwc with LXQt. For a complete
+  set of options see /usr/share/labwc/docs/rc.xml.all
 -->
 
 <labwc_config>

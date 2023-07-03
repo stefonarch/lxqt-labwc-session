@@ -20,9 +20,9 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null
 # Launch a bottom panel with a taskbar (not provided yet by lxqt-panel)
 # waybar: text and icons; yatbwf: only icons
 
-waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s ~/.config/waybar/lxqt-style-light.css >/dev/null 2>&1 &
+waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s $XDG_CONFIG_HOME/waybar/lxqt-style-light.css >/dev/null 2>&1 &
 # Comment above and uncomment for dark themes
-#waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s ~/.config/waybar/lxqt-style-dark.css >/dev/null 2>&1 &
+#waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s $XDG_CONFIG_HOME/waybar/lxqt-style-dark.css >/dev/null 2>&1 &
 #yatbfw -c $XDG_CONFIG_HOME/yatbfw-taskbar.json >/dev/null 2>&1 &
 
 # Enable alternative notifications instead of lxqt-notificationd
