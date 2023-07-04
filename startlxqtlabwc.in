@@ -97,12 +97,15 @@ if [ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ];
 fi
 
 export WAYLAND_COMPOSITOR=labwc
+
+# Import keyboard layout
+lxqt-settingsexporter
 ## End LXQt common settings
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
 
-# Start the compositor
+# Start the compositor and lxqt-session
 exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc -s lxqt-session
 
 

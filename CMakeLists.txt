@@ -46,10 +46,13 @@ set(PREDEF_XDG_DATA_DIRS "${PREDEF_XDG_DATA_DIRS}:/usr/local/share:/usr/share")
 set(PREDEF_XDG_CONFIG_DIRS "/etc:${LXQT_ETC_XDG_DIR}:/usr/share")
 configure_file(startlxqtlabwc.in startlxqtlabwc @ONLY)
 configure_file(lxqt-panelloader.in lxqt-panelloader @ONLY)
+configure_file(lxqt-settingsexporter.in lxqt-settingsexporter @ONLY)
+
 
 install(PROGRAMS
     "${CMAKE_CURRENT_BINARY_DIR}/startlxqtlabwc"
     "${CMAKE_CURRENT_BINARY_DIR}/lxqt-panelloader"
+    "${CMAKE_CURRENT_BINARY_DIR}/lxqt-settingsexporter"
     DESTINATION "${CMAKE_INSTALL_BINDIR}"
     COMPONENT Runtime
 )
