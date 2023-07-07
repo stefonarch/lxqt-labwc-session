@@ -37,7 +37,6 @@ For arch based distributions an [AUR]() packages is available.
 * Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
 * Refer also to this file for some lxqt-settings (e.g. positions)
 * Some panel plugins do not work on wayland, see [lxqt-panel](https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md) for more information.
-* lxqt-panel does not hide in fullscreen (yet).
 
 
 

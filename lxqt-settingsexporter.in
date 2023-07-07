@@ -1,17 +1,19 @@
 #!/bin/bash
-# Import settings from lxqt-x11 session in labwc
+# Import settings from lxqt-x11 session in labwc/environment
 labwc_settings=$XDG_CONFIG_HOME/lxqt-wayland/labwc/environment
 lxqt_settings=$XDG_CONFIG_HOME/lxqt/session.conf
 
-# Keyboard layout
+# Keyboard layouts
 layout="XKB_DEFAULT_LAYOUT=$(cat $lxqt_settings| grep  layout| sed 's/[^=]*="\([^"]*\)"/\1/')"
 layout_labwc=$(cat $labwc_settings |grep LAYOUT)
 
-if [[ "$layout_labwc" != "$layout" ]];then
-
+# Check if it is not configured already
+if [[ $layout_labwc == *"#"* ]]; then
+echo commentato
 sed /LAYOUT/s/.*/"$layout"/ $labwc_settings > /tmp/labwc_settings
 cp /tmp/labwc_settings  $labwc_settings
 fi
+
 
 # Toggle layout settings, needs check for not overwriting changed settings in labwc
 #options_x11=$(cat ~/.config/lxqt/session.conf| grep  options| sed 's/[^=]*="\([^"]*\)"/\1/')
