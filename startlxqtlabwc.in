@@ -109,13 +109,7 @@ lxqt-settingsexporter
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
 
-<<<<<<< HEAD
 # Start the compositor and lxqt-session
-=======
-# Grim (screenshots)
-
-# Start the compositor
->>>>>>> parent of 5a3cb14 (Better startup script)
 exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc -s lxqt-session
 
 

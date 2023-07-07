@@ -1,5 +1,5 @@
 #!/bin/sh
-# check session type  and select configuration path for lxqt-panel
+# check session type and select configuration path for lxqt-panel
 if
    [ "$XDG_SESSION_TYPE" = "wayland" ];
    then

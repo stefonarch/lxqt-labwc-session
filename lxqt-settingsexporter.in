@@ -4,12 +4,20 @@ labwc_settings=$XDG_CONFIG_HOME/lxqt-wayland/labwc/environment
 lxqt_settings=$XDG_CONFIG_HOME/lxqt/session.conf
 
 # Keyboard layouts
-layout="XKB_DEFAULT_LAYOUT=$(cat $lxqt_settings| grep  layout| sed 's/[^=]*="\([^"]*\)"/\1/')"
 layout_labwc=$(cat $labwc_settings |grep LAYOUT)
 
-# Check if it is not configured already
+# Check if layouts are configured in LXQt x11
+set="layout"
+
+if grep -q "$set" "$lxqt_settings"; then
+    echo "Layout under x11 configured"
+    layout="XKB_DEFAULT_LAYOUT=$(cat $lxqt_settings| grep  layout| sed 's/[^=]*="\([^"]*\)"/\1/')"
+else
+    layout="XKB_DEFAULT_LAYOUT=$(echo $LANG|cut -c 1,2)"
+fi
+
+# Check if it is not configured already in labwc
 if [[ $layout_labwc == *"#"* ]]; then
-echo commentato
 sed /LAYOUT/s/.*/"$layout"/ $labwc_settings > /tmp/labwc_settings
 cp /tmp/labwc_settings  $labwc_settings
 fi

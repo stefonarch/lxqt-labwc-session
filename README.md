@@ -33,7 +33,7 @@ For arch based distributions an [AUR]() packages is available.
 * LXQt lock settings do not work yet. For screenlock settings under wayland please check `~/.config/lxqt-wayland/labwc/autostart`.
 * Some X11-only applications (example: redshift) in autostart can lead to high CPU usage under wayland.
 * All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`.
-* LXQt Mouse/touchpad and keyboard settings do not work but configured keyboard layouts should be imported. See  `~/.config/lxqt-wayland/labwc/environment` and the "libinput" section in `rc.xml`.
+* LXQt Mouse/touchpad and keyboard settings do not work but keyboard layout(s) should be imported or set at first run. See  `~/.config/lxqt-wayland/labwc/environment` and the "libinput" section in `rc.xml`.
 * Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
 * Refer also to this file for some lxqt-settings (e.g. positions)
 * Some panel plugins do not work on wayland, see [lxqt-panel](https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md) for more information.
