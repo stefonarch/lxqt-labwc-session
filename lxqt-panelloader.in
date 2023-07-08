@@ -1,9 +1,9 @@
 #!/bin/sh
 # check session type and select configuration path for lxqt-panel
-
-if [ "$process_count" -gt 1 ]; then
+process=$(ps -e|grep -w lxqt-panel|wc -l)
+# Alert if a panel is running already
+if [ "$process" -ge 1 ]; then
   notify-send -a lxqt-panel -i dialog-warning "There is more than one panel running, please check your session settings and make sure that only 'Panel x11/Wayland' is activated"
-  sleep 2
   lxqt-config-session
 fi
 if
