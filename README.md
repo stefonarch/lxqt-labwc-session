@@ -7,7 +7,7 @@ Use your display manager to start the session. `startlxqtlabwc` from tty should 
 ## Requisites
 
 * LXQt version 1.3
-* [labwc-git](https://github.com/labwc/labwc)
+* labwc 0.6.4 or [labwc-git](https://github.com/labwc/labwc)
 * waybar (default) or yatbfw (needed as taskmanager)
 * [lxqt-notificationd-wip](https://github.com/stefonarch/lxqt-notificationd/tree/wip_layer_shell_qt) for better experience with `lxqt-notificationd` (optional)
 * [lxqt-wlogout](https://github.com/stefonarch/lxqt-wlogout) for complete logout (optional)
