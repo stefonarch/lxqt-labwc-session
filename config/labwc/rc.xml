@@ -97,7 +97,8 @@
     </windowRule>
     <windowRule title="pcmanfm-desktop*" skipTaskbar="yes" skipWindowSwitcher="yes">
       <action name="ToggleAlwaysOnBottom"/>
-      <action name="Maximize"/>
+      <action name="MoveTo" x="0" y="0"/>
+      <action name="ToggleKeybinds"/>
     </windowRule>
     <windowRule identifier="lxqt-notificationd" skipTaskbar="yes" skipWindowSwitcher="yes">
       <action name="SnapToRegion" region="notifications"/>

@@ -19,7 +19,7 @@ find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(PkgConfig REQUIRED)
 
 # Please don't move, must be after lxqt
-find_package(XdgUserDirs REQUIRED)
+#find_package(XdgUserDirs REQUIRED)
 
 # Patch Version
 set(LXQT_LABWC_SESSION_PATCH_VERSION 0)
