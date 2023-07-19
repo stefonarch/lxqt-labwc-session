@@ -64,9 +64,6 @@ export XDG_CURRENT_DESKTOP="LXQt"
 
 export WAYLAND_COMPOSITOR=labwc
 
-# Firefox
-export MOZ_ENABLE_WAYLAND=1
-
 # Create lxqt-wayland settings directory if not existing
 mkdir -p $XDG_CONFIG_HOME/lxqt-wayland
 

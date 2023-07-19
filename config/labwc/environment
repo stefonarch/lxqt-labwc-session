@@ -20,3 +20,6 @@
 # to avoid menus with incorrect offset and blank windows
 # See https://github.com/swaywm/sway/issues/595
 _JAVA_AWT_WM_NONREPARENTING=1
+
+# Firefox
+MOZ_ENABLE_WAYLAND=1
