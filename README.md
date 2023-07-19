@@ -13,7 +13,7 @@ Use your display manager to start the session.
 * `labwc` 0.6.4 or [labwc-git]
 * [waybar] (default) or [yatbfw] (needed as taskmanager)
 * [lxqt-notificationd-wip] for better experience with `lxqt-notificationd` (optional)
-* [wlogout] for complete logout (optional)
+* [lxqt-wlogout] for complete logout closing lxqt-session first (optional)
 * swaybg, swaylock, swayidle for screen locking and background (optional)
 
 Build dependencies are `CMake`, [lxqt-session] and optionally
@@ -64,4 +64,4 @@ For Arch based distributions an [AUR] package is available.
 [lxqt-session]:           https://github.com/lxqt/lxqt-session/
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
-[wlogout]:                https://github.com/ArtsyMacaw/wlogout/
+[lxqt-wlogout]:           https://github.com/stefonarch/lxqt-wlogout
