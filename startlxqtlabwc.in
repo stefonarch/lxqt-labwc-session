@@ -62,12 +62,10 @@ export XDG_MENU_PREFIX="lxqt-"
 
 export XDG_CURRENT_DESKTOP="LXQt"
 
-# Import compositor from  LXQt settings:
-#export $(cat $XDG_CONFIG_HOME/lxqt/session.conf |grep wayland_compositor)
+export WAYLAND_COMPOSITOR=labwc
 
-# Import and set locale and scale factor from lxqt (not needed if using lxqt-session)
-#export $(cat "$XDG_CONFIG_HOME"/lxqt/lxqt-config-locale.conf |grep LANG)
-#export $(cat "$XDG_CONFIG_HOME"/lxqt/session.conf |grep QT_SCALE_FACTOR)
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
 
 # Create lxqt-wayland settings directory if not existing
 mkdir -p $XDG_CONFIG_HOME/lxqt-wayland
@@ -100,16 +98,9 @@ if [[ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ]]
    cp /usr/share/lxqt/wayland/yatbfw-taskbar.json "$XDG_CONFIG_HOME"/
 fi
 
-export WAYLAND_COMPOSITOR=labwc
-
 # Import keyboard layout
 lxqt-settingsexporter
 ## End LXQt common settings
 
-# Firefox
-export MOZ_ENABLE_WAYLAND=1
-
 # Start the compositor and lxqt-session
 exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc -s lxqt-session
-
-
