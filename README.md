@@ -46,6 +46,7 @@ For Arch based distributions an [AUR] package is available.
   on wayland. Panels with a "Desktop switch" widget will crash - do not add it.
 * LXQt lock settings do not work yet. For screenlock settings under wayland
   please check `~/.config/lxqt-wayland/labwc/autostart`.
+* **Update**: To hide the panel with fullscreen applications use `<action name="ToggleAlwaysOnBottom"/>` in `~/.config/lxqt-wayland/labwc/rc.xml` "Windowrules" section
 * Some X11-only applications (example: redshift) in autostart
   can lead to high CPU usage under wayland.
 * All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`.
