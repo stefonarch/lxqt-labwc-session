@@ -11,7 +11,7 @@ Use your display manager to start the session.
 
 * `LXQt` version 1.3
 * `labwc` 0.6.4 or [labwc-git]
-* [waybar] (default) or [yatbfw] (needed as taskmanager)
+* [waybar] or [yatbfw] (needed as taskmanager)
 * [lxqt-notificationd-wip] for better experience with `lxqt-notificationd` (optional)
 * [lxqt-wlogout] for complete logout closing lxqt-session first (optional)
 * swaybg, swaylock, swayidle for screen locking and background (optional)
@@ -46,7 +46,7 @@ For Arch based distributions an [AUR] package is available.
   on wayland. Panels with a "Desktop switch" widget will crash - do not add it.
 * LXQt lock settings do not work yet. For screenlock settings under wayland
   please check `~/.config/lxqt-wayland/labwc/autostart`.
-* **Update**: To hide the panel with fullscreen applications use `<action name="ToggleAlwaysOnBottom"/>` in `~/.config/lxqt-wayland/labwc/rc.xml` "Windowrules" section
+* **Update**: To hide the panel with fullscreen applications using `<action name="ToggleAlwaysOnBottom"/>` in `~/.config/lxqt-wayland/labwc/rc.xml` "Windowrules" section is recommended
 * Some X11-only applications (example: redshift) in autostart
   can lead to high CPU usage under wayland.
 * All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`.
@@ -56,6 +56,7 @@ For Arch based distributions an [AUR] package is available.
 * Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
 * Refer also to this file for some lxqt-settings (e.g. positions)
 * Some panel plugins do not work on wayland, see [lxqt-panel] for more information.
+* [Credit] for the original Vent theme
 
 
 [AUR]:                    https://aur.archlinux.org/packages/lxqt-labwc-session-git
@@ -66,3 +67,4 @@ For Arch based distributions an [AUR] package is available.
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
 [lxqt-wlogout]:           https://github.com/stefonarch/lxqt-wlogout
+[Credit]:                 https://github.com/addy-dclxvi/openbox-theme-collections

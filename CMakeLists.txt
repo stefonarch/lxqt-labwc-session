@@ -64,6 +64,12 @@ install(FILES
 )
 
 install(FILES
+    lxqt-labwc.png
+    DESTINATION "${LXQT_SHARE_DIR}/graphics"
+    COMPONENT Runtime
+)
+
+install(FILES
     lxqt-labwc.desktop
     DESTINATION "${CMAKE_INSTALL_DATADIR}/wayland-sessions"
     COMPONENT Runtime
