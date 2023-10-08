@@ -2,6 +2,7 @@
 
 border.width: 2
 padding.width: 4
+
 window.active.border.color: #33679a
 window.inactive.border.color: #000000
 window.active.indicator.toggled-keybind.color: #b62b19
@@ -21,25 +22,22 @@ menu.separator.padding.height: 2
 menu.overlap.x: 0
 menu.overlap.y: 0
 menu.separator.color: #78a2fc
-menu.title.text.color: #000000
 menu.items.text.color: #5a5a5a
 menu.items.active.text.color: #000000
 menu.items.bg.color: #ffffff
 menu.items.active.bg.color: #aac9fc
-menu.title.bg.color: #ffffff
-menu.title.text.justify: center
 
 ### OSD
 
 osd.bg.color: #ffffff
 osd.border.color: #3294a8
 osd.border.width: 3
-osd.label.text.color: #484848
-osd.window‐switcher.width: 700
-osd.window‐switcher.padding: 4
-osd.window‐switcher.item.padding.x: 3
-osd.window‐switcher.item.padding.y: 3
-osd.window‐switcher.item.active.border.width: 2
+osd.label.text.color: #5a5a5a
+osd.window-switcher.width: 800
+osd.window-switcher.padding: 10
+osd.window-switcher.item.padding.x: 5
+osd.window-switcher.item.padding.y: 5
+osd.window-switcher.item.active.border.width: 2
 
 ## BUTTONS
 

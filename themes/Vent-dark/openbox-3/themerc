@@ -2,6 +2,7 @@
 
 border.width: 1
 padding.height: 5
+titlebar.height: 38
 window.active.border.color: #1ee7ea
 window.inactive.border.color: #d0d0d0
 window.active.indicator.toggled-keybind.color: #cb2727
@@ -37,11 +38,11 @@ osd.bg.color: #45474c
 osd.border.color: #3294a8
 osd.border.width: 3
 osd.label.text.color: #e2e2e2
-osd.window‐switcher.width: 700
-osd.window‐switcher.padding: 4
-osd.window‐switcher.item.padding.x: 3
-osd.window‐switcher.item.padding.y: 3
-osd.window‐switcher.item.active.border.width: 2
+osd.window-switcher.width: 800
+osd.window-switcher.padding: 10
+osd.window-switcher.item.padding.x: 5
+osd.window-switcher.item.padding.y: 5
+osd.window-switcher.item.active.border.width: 2
 
 ## BUTTONS
 
