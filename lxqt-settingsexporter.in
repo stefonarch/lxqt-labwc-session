@@ -27,5 +27,11 @@ fi
 #options_x11=$(cat ~/.config/lxqt/session.conf| grep  options| sed 's/[^=]*="\([^"]*\)"/\1/')
 #=$(cat .config/lxqt-wayland/labwc/environment |grep OPTIONS)
 
+# Sync labwc cursor env vars with LXQt settings
 
+# remove existing lines
+sed -i '/XCURSOR/d' $labwc_settings
+# import LXQt settings
+echo XCURSOR_SIZE=$(cat $lxqt_settings |grep _size| cut -d '=' -f2) >> $labwc_settings
+echo XCURSOR_THEME=$(cat $lxqt_settings |grep theme| cut -d '=' -f2) >> $labwc_settings
 

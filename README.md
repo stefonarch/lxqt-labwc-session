@@ -60,7 +60,7 @@ For Arch based distributions an [AUR] package is available.
 
 * In "Session Settings" **uncheck** the "Panel" module and check only
   "Panel X11/Wayland" in order to use different settings for `lxqt-panel`
-  on wayland. Panels with a "Desktop switch" widget will crash - do not add it.
+  on wayland. Panels with a "Desktop switch" widget will crash - do not add it (fixed in git).
 * LXQt lock settings do not work yet. For screenlock settings under wayland
   please check `~/.config/lxqt-wayland/labwc/autostart`.
 * **Update**: To hide the panel with fullscreen applications using `<action name="ToggleAlwaysOnBottom"/>` in `~/.config/lxqt-wayland/labwc/rc.xml` "Windowrules" section is recommended
@@ -68,8 +68,9 @@ For Arch based distributions an [AUR] package is available.
   can lead to high CPU usage under wayland.
 * All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`.
 * LXQt Mouse/touchpad and keyboard settings do not work but keyboard layout(s)
-  should be imported or set at first run. See
+  will be imported or set at first run.See
   `~/.config/lxqt-wayland/labwc/environment` and the "libinput" section in `rc.xml`.
+* Mouse cursor and size are synced and can be set using "Appearance" settings, session restart required. GTK settings have to be updated after changes.
 * Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
 * Refer also to this file for some lxqt-settings (e.g. positions)
 * Some panel plugins do not work on wayland, see [lxqt-panel] for more information.
