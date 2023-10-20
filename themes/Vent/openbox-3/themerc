@@ -1,8 +1,8 @@
 ### WINDOW
 
 border.width: 2
-padding.width: 4
-
+padding.height: 4
+titlebar.height: 38
 window.active.border.color: #33679a
 window.inactive.border.color: #000000
 window.active.indicator.toggled-keybind.color: #b62b19
@@ -11,16 +11,20 @@ window.inactive.label.text.color: #777777
 window.active.title.bg.color: #ffffff
 window.active.label.bg.color: #ffffff
 window.inactive.title.bg.color: #e1e4e7
+window.inactive.label.text.color: #b0b3b5
 window.label.text.justify: center
 
 ### MENU
 
-menu.border.width: 6
+menu.items.padding.x: 7
+menu.items.padding.y: 4
+menu.overlap.x: 0
+menu.overlap.y: 0
+menu.width.min: 100
+menu.width.max: 250
 menu.separator.width: 2
 menu.separator.padding.width: 10
 menu.separator.padding.height: 2
-menu.overlap.x: 0
-menu.overlap.y: 0
 menu.separator.color: #78a2fc
 menu.items.text.color: #5a5a5a
 menu.items.active.text.color: #000000

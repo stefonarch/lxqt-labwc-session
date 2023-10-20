@@ -29,6 +29,7 @@ filterClear=true
 showText=true
 text=LXQt
 icon=@LXQT_SHARE_DIR@/graphics/lxqt-labwc.png
+ownIcon=true
 type=mainmenu
 
 [mount]

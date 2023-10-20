@@ -7,10 +7,27 @@ Settings for [waybar] or [yatbfw] taskbars are also provided.<br>
 Use your display manager to start the session.
 `startlxqtlabwc` from tty should work too.
 
+## Screenshots
+
+![LXQt-labwc dark](labwc-dark.png)
+
+* Widget style: kvantum-dark
+* LXQt style: "System"
+* waybar #taskbar: lxqt-style-dark.css
+* labwc: "Vent-dark" theme
+
+
+
+![LXQt-labwc dark](labwc-light.png)
+
+* LXQt default settings
+* waybar #taskbar: lxqt-style-light.css
+* labwc: "Vent" theme
+
 ## Dependencies
 
-* `LXQt` version 1.3
-* `labwc` 0.6.4 or [labwc-git]
+* `LXQt` minimum version 1.3
+* `labwc` 0.6.4 or higher; [labwc-git]
 * [waybar] or [yatbfw] (needed as taskmanager)
 * [lxqt-notificationd-wip] for better experience with `lxqt-notificationd` (optional)
 * [lxqt-wlogout] for complete logout closing lxqt-session first (optional)
