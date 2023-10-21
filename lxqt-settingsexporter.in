@@ -1,31 +1,39 @@
 #!/bin/bash
 # Import settings from lxqt-x11 session in labwc/environment
+echo "Importing LXQt settings into labwc"
 labwc_settings=$XDG_CONFIG_HOME/lxqt-wayland/labwc/environment
 lxqt_settings=$XDG_CONFIG_HOME/lxqt/session.conf
 
 # Keyboard layouts
-layout_labwc=$(cat $labwc_settings |grep LAYOUT)
+layout_labwc=$(cat $labwc_settings |grep LAYOUT|cut -d '=' -f2-)
 
 # Check if layouts are configured in LXQt x11
-set="layout"
 
-if grep -q "$set" "$lxqt_settings"; then
-    echo "Layout under x11 configured"
+if grep -q layout "$lxqt_settings"; then
+    echo "Existing keyboard layout setting found in LXQt"
     layout="XKB_DEFAULT_LAYOUT=$(cat $lxqt_settings| grep  layout| sed 's/[^=]*=["]*\([^"]*\)["]*/\1/')"
 else
     layout="XKB_DEFAULT_LAYOUT=$(echo $LANG|cut -c 1,2)"
 fi
 
 # Check if it is not configured already in labwc
-if [[ $layout_labwc == *"#"* ]]; then
-sed /LAYOUT/s/.*/"$layout"/ $labwc_settings > /tmp/labwc_settings
-cp /tmp/labwc_settings  $labwc_settings
+if [ -z "$layout_labwc" ]; then
+    echo "No existing keyboard layout found in labwc, importing..."
+    echo $layout >> $labwc_settings
+else
+    echo "Keyboard layout in labwc already configured"
 fi
 
+# Import toggle layout setting at first run
+options_lxqt=$(cat $lxqt_settings |grep  options|cut -d '=' -f2-)
+options_labwc=$(cat $labwc_settings |grep OPTIONS|cut -d '=' -f2-)
 
-# Toggle layout settings, needs check for not overwriting changed settings in labwc
-#options_x11=$(cat ~/.config/lxqt/session.conf| grep  options| sed 's/[^=]*="\([^"]*\)"/\1/')
-#=$(cat .config/lxqt-wayland/labwc/environment |grep OPTIONS)
+if [ -z "$options_labwc" ]; then
+    echo "No existing layout switch shortcut found in labwc, importing..."
+    echo XKB_DEFAULT_OPTIONS=$options_lxqt >> $labwc_settings
+else
+    echo "Layout toggle shortcut in labwc already configured"
+fi
 
 # Sync labwc cursor env vars with LXQt settings
 
@@ -34,4 +42,5 @@ sed -i '/XCURSOR/d' $labwc_settings
 # import LXQt settings
 echo XCURSOR_SIZE=$(cat $lxqt_settings |grep _size| cut -d '=' -f2) >> $labwc_settings
 echo XCURSOR_THEME=$(cat $lxqt_settings |grep theme| cut -d '=' -f2) >> $labwc_settings
+echo "Imported cursor size and theme"
 

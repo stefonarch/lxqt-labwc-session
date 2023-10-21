@@ -1,16 +1,7 @@
-# Example environment file
+# LXQt labwc environment file
 
 # This allows xdg-desktop-portal-wlr to function (e.g. for screen-recording)
 # XDG_CURRENT_DESKTOP=wlroots
-
-# Set one or more keyboard layouts and toggle eventually between them using alt+shift
-# XKB_DEFAULT_LAYOUT=de,us
-# XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
-
-# Set cursor theme.
-# Find icons themes with the command below or similar:
-#     find /usr/share/icons/ -type d -name "cursors"
-# XCURSOR_THEME=breeze_cursors
 
 # Disable hardware cursors. Most users wouldn't want to do this, but if you
 # are experiencing issues with disappearing cursors, this might fix it.
@@ -23,3 +14,6 @@ _JAVA_AWT_WM_NONREPARENTING=1
 
 # Firefox
 MOZ_ENABLE_WAYLAND=1
+
+# Cursor theme and size are imported from LXQt at login. Configure under LXQt in "Appearance → Cursor".
+# Keyboard layout and toggle options are imported only once from LXQt, edit here to change
