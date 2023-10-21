@@ -1,6 +1,7 @@
 #!/bin/bash
-# Import settings from lxqt-x11 session in labwc/environment
-echo "Importing LXQt settings into labwc"
+# Exports settings from lxqt-x11 session to labwc/environment
+# Executed once at session start
+echo "Importing LXQt settings into labwc..."
 labwc_settings=$XDG_CONFIG_HOME/lxqt-wayland/labwc/environment
 lxqt_settings=$XDG_CONFIG_HOME/lxqt/session.conf
 
@@ -24,15 +25,21 @@ else
     echo "Keyboard layout in labwc already configured"
 fi
 
-# Import toggle layout setting at first run
-options_lxqt=$(cat $lxqt_settings |grep  options|cut -d '=' -f2-)
-options_labwc=$(cat $labwc_settings |grep OPTIONS|cut -d '=' -f2-)
+# Add toggle option only if more than one layout is configured
 
-if [ -z "$options_labwc" ]; then
-    echo "No existing layout switch shortcut found in labwc, importing..."
-    echo XKB_DEFAULT_OPTIONS=$options_lxqt >> $labwc_settings
+if [[ $layout == *,* ]]; then
+# Import toggle layout setting at first run
+    options_lxqt=$(cat $lxqt_settings |grep  options|cut -d '=' -f2-)
+    options_labwc=$(cat $labwc_settings |grep OPTIONS|cut -d '=' -f2-)
+
+    if [ -z "$options_labwc" ]; then
+      echo "No existing layout switch shortcut found in labwc, importing..."
+      echo XKB_DEFAULT_OPTIONS=$options_lxqt >> $labwc_settings
+    else
+      echo "Layout toggle shortcut in labwc already configured"
+    fi
 else
-    echo "Layout toggle shortcut in labwc already configured"
+    echo "Only one layout present - toggle options skipped"
 fi
 
 # Sync labwc cursor env vars with LXQt settings
@@ -43,4 +50,6 @@ sed -i '/XCURSOR/d' $labwc_settings
 echo XCURSOR_SIZE=$(cat $lxqt_settings |grep _size| cut -d '=' -f2) >> $labwc_settings
 echo XCURSOR_THEME=$(cat $lxqt_settings |grep theme| cut -d '=' -f2) >> $labwc_settings
 echo "Imported cursor size and theme"
+
+#todo XKB_DEFAULT_RULES, XKB_DEFAULT_MODEL, XKB_DEFAULT_VARIANT and
 
