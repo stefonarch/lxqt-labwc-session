@@ -28,7 +28,7 @@ Use your display manager to start the session.
 
 * `LXQt` minimum version 1.3
 * `labwc` 0.6.4 or higher; [labwc-git]
-* [waybar] or [yatbfw] (needed as taskmanager)
+* [sfwbar], [waybar] or [yatbfw] (needed as taskmanager)
 * [lxqt-notificationd-wip] for better experience with `lxqt-notificationd` (optional)
 * [lxqt-wlogout] for complete logout closing lxqt-session first (optional)
 * swaybg, swaylock, swayidle for screen locking and background (optional)
@@ -60,7 +60,8 @@ For Arch based distributions an [AUR] package is available.
 
 * In "Session Settings" **uncheck** the "Panel" module and check only
   "Panel X11/Wayland" in order to use different settings for `lxqt-panel`
-  on wayland. Panels with a "Desktop switch" widget will crash - do not add it (fixed in git).
+  on wayland. Panels with a "Desktop switch" widget will crash - do not add it (fixed in LXQt 1.4).
+* **Taskbar**: The only taskbar which displays window titles with eliding is `swfbar`; waybar can show well only app names and/or icons; yatbfw displays icons only.
 * LXQt lock settings do not work yet. For screenlock settings under wayland
   please check `~/.config/lxqt-wayland/labwc/autostart`.
 * **Update**: To hide the panel with fullscreen applications using `<action name="ToggleAlwaysOnBottom"/>` in `~/.config/lxqt-wayland/labwc/rc.xml` "Windowrules" section is recommended
@@ -82,6 +83,7 @@ For Arch based distributions an [AUR] package is available.
 [lxqt-notificationd-wip]: https://github.com/stefonarch/lxqt-notificationd/tree/wip_layer_shell_qt/
 [lxqt-panel]:             https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md
 [lxqt-session]:           https://github.com/lxqt/lxqt-session/
+[sfwbar]:                 https://github.com/LBCrion/sfwbar
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
 [lxqt-wlogout]:           https://github.com/stefonarch/lxqt-wlogout
