@@ -41,15 +41,14 @@ Build dependencies are `CMake`, [lxqt-session] and optionally
 Code configuration is handled by CMake.<br>
 CMake variable `CMAKE_INSTALL_PREFIX` has to be set to `/usr` on most operating systems.
 
-```bash
+```
 git clone https://github.com/stefonarch/lxqt-labwc-session.git
 cd lxqt-labwc-session
 mkdir build && cd build
-cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr
-cmake --build build --config Release
+cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 
-# Use your distro package manager instead using sudo make install
-DESTDIR="$(pwd)/package" cmake --build build --target install
+# Prefer creating a package for your distro instead of using sudo make install
+
 ```
 
 ## Packages:
