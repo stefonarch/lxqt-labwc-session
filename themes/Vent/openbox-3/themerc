@@ -42,6 +42,8 @@ osd.window-switcher.padding: 10
 osd.window-switcher.item.padding.x: 5
 osd.window-switcher.item.padding.y: 5
 osd.window-switcher.item.active.border.width: 2
+osd.workspace-switcher.boxes.width: 40
+osd.workspace-switcher.boxes.height: 30
 
 ## BUTTONS
 
