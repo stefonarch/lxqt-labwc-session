@@ -56,6 +56,15 @@ export QT_PLATFORM_PLUGIN="lxqt"
 
 # Qt5 platform plugin
 export QT_QPA_PLATFORMTHEME="lxqt"
+export QT_EXCLUDE_GENERIC_BEARER=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
+# Qt6
+export QT_ACCESSIBILITY=1
+
+# Prevent illegibile text in some KDE apps
+
+export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
 
 # use lxqt-applications.menu for main app menu
 export XDG_MENU_PREFIX="lxqt-"
@@ -73,31 +82,9 @@ if [[ ! -d "$XDG_CONFIG_HOME/lxqt-wayland/labwc" ]]
    cp -a /usr/share/lxqt/wayland/labwc "$XDG_CONFIG_HOME"/lxqt-wayland/
 fi
 
-# Copy lxqt-wayland-panel.conf if not existing
-if [[ ! -f "$XDG_CONFIG_HOME/lxqt-wayland/panel-wayland.conf" ]]
-   then
-   cp /usr/share/lxqt/wayland/panel-wayland.conf "$XDG_CONFIG_HOME"/lxqt-wayland/
-fi
-
-# Copy waybar and yatbfw taskbar settings
-mkdir -p $XDG_CONFIG_HOME/waybar
-
-if [[ ! -f "$XDG_CONFIG_HOME/waybar/taskbar.config" ]]
-   then
-   cp /usr/share/lxqt/wayland/waybar/taskbar.config "$XDG_CONFIG_HOME"/waybar/
-fi
-if [[ ! -f "$XDG_CONFIG_HOME/waybar/lxqt-style.css" ]]
-   then
-   cp /usr/share/lxqt/wayland/waybar/lxqt*.css "$XDG_CONFIG_HOME"/waybar/
-fi
-if [[ ! -f "$XDG_CONFIG_HOME/yatbfw-taskbar.json" ]]
-   then
-   cp /usr/share/lxqt/wayland/yatbfw-taskbar.json "$XDG_CONFIG_HOME"/
-fi
-
 # Import keyboard layout
-lxqt-settingsexporter
-## End LXQt common settings
+exec lxqt-settingsexporter
+## End LXQt settings
 
 # Start the compositor and lxqt-session
 exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc -s lxqt-session
