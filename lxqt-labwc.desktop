@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=LXQt labwc
-Comment=LXQt labwc Session
+Name=LXQt Labwc (Wayland)
+Comment=LXQt Session using the labwc compositor
 Exec=startlxqtlabwc
 Type=Application
 

@@ -56,6 +56,9 @@ export QT_PLATFORM_PLUGIN="lxqt"
 
 # Qt5 platform plugin
 export QT_QPA_PLATFORMTHEME="lxqt"
+
+# Qt5
+export QT_QPA_PLATFORMTHEME="lxqt"
 export QT_EXCLUDE_GENERIC_BEARER=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
@@ -83,8 +86,9 @@ if [[ ! -d "$XDG_CONFIG_HOME/lxqt-wayland/labwc" ]]
 fi
 
 # Import keyboard layout
-exec lxqt-settingsexporter
-## End LXQt settings
+lxqt-settingsexporter
+## End LXQt common settings
 
-# Start the compositor and lxqt-session
-exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc -s lxqt-session
+# Start the compositor and lxqt-session with debug
+#exec systemd-cat --identifier=labwc labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
+exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
