@@ -32,10 +32,20 @@ add_definitions(
 include(LXQtPreventInSourceBuilds)
 include(LXQtCompilerSettings NO_POLICY_SCOPE)
 include(GNUInstallDirs)
-
-# merged from lxqt-common
 include(LXQtConfigVars)
 file(GLOB DESKTOP_FILES_IN *.desktop.in)
+
+find_program(LABWC_EXECUTABLE labwc)
+
+if(LABWC_EXECUTABLE)
+    execute_process(
+        COMMAND ${LABWC_EXECUTABLE} --version
+        OUTPUT_VARIABLE LABWC_VERSION
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    message("Found labwc version: ${LABWC_VERSION}")
+endif()
+
 
 # startlxqt<compositor> scripts
 set(PREDEF_XDG_DATA_DIRS "$XDG_DATA_HOME")
@@ -44,8 +54,8 @@ if(NOT("${LXQT_DATA_DIR}" MATCHES "^/usr(/local)?/share$"))
 endif()
 set(PREDEF_XDG_DATA_DIRS "${PREDEF_XDG_DATA_DIRS}:/usr/local/share:/usr/share")
 set(PREDEF_XDG_CONFIG_DIRS "/etc:${LXQT_ETC_XDG_DIR}:/usr/share")
-configure_file(startlxqtlabwc.in startlxqtlabwc @ONLY)
-configure_file(toggledropdown.in toggledropdown @ONLY)
+#configure_file(toggledropdown.in toggledropdown @ONLY)
+configure_file(lxqt-settingsexporter.in lxqt-settingsexporter @ONLY)
 
 install(PROGRAMS
     "${CMAKE_CURRENT_BINARY_DIR}/startlxqtlabwc"

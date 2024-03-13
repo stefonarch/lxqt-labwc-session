@@ -1,7 +1,7 @@
 # lxqt-labwc-session
 
->Files for an experimental LXQt wayland session using the labwc compositor.<br>
-*Should* not interfere with existing LXQt X11 sessions.
+>Files for an LXQt wayland session using the labwc compositor.<
+
 
 Use your display manager to start "LXQt Labwc".
 `startlxqtlabwc` from tty should work too.
@@ -24,8 +24,8 @@ Use your display manager to start "LXQt Labwc".
 
 ## Dependencies
 
-Build dependencies are `CMake`, [lxqt] 2.0>=, [labwc] 0.6>= and optionally
-`Git` to pull latest VCS checkouts.
+Build dependencies are `CMake`, [lxqt] 2.0>= and optionally
+`Git` to pull latest VCS checkouts. [labwc] version 0.7.2 or higher is recommended.
 
 ### Optional:
 
@@ -71,6 +71,8 @@ For Arch based distributions an [AUR] package is available.
 * Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
 
 * [Credit] for the original Vent theme
+
+Support: matrix channel [#labc-lxqt[(https://matrix.to/#/!JWxuqfyjxmDWUabBkv:sonoj.org/$ZBJ-PJurHTEEms0QEqnMIdKtHVXdEHpRNq7PUDe_OB4?via=matrix.org)
 
 
 [AUR]:                    https://aur.archlinux.org/packages/lxqt-labwc-session-git

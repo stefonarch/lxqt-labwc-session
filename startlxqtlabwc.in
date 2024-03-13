@@ -89,6 +89,31 @@ fi
 lxqt-settingsexporter
 ## End LXQt common settings
 
-# Start the compositor and lxqt-session with debug
-#exec systemd-cat --identifier=labwc labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
-exec labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
+# enable cursor on VM
+VIRT=$(systemd-detect-virt)
+if [ ! "$VIRT" = none ]; then
+export WLR_NO_HARDWARE_CURSORS=1
+echo "Running on virtualized hardware"
+fi
+
+# Find labwc executable
+LABWC_EXECUTABLE=$(which labwc)
+
+if [ -x "$LABWC_EXECUTABLE" ]; then
+    LABWC_VERSION=$("$LABWC_EXECUTABLE" --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+# Version check for logout
+    if [ "$(printf '%s\n' "$LABWC_VERSION")" != "0.7.1" ]; then
+        exec labwc -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -s lxqt-session
+        echo "Labwc version is <= 0.7.1."
+    else
+        # version is greater than 0.7.1 -> use -S option for logout support
+        echo "Labwc version is > 0.7.1. Add your actions here."
+        exec labwc -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
+        # with debug:
+        #exec systemd-cat --identifier=labwc labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
+    fi
+else
+    echo "labwc not found. Please install labwc. Exiting."
+fi
+
+
