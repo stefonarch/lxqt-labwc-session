@@ -55,6 +55,7 @@ endif()
 set(PREDEF_XDG_DATA_DIRS "${PREDEF_XDG_DATA_DIRS}:/usr/local/share:/usr/share")
 set(PREDEF_XDG_CONFIG_DIRS "/etc:${LXQT_ETC_XDG_DIR}:/usr/share")
 #configure_file(toggledropdown.in toggledropdown @ONLY)
+configure_file(startlxqtlabwc.in startlxqtlabwc @ONLY)
 configure_file(lxqt-settingsexporter.in lxqt-settingsexporter @ONLY)
 
 install(PROGRAMS

@@ -29,8 +29,6 @@ Build dependencies are `CMake`, [lxqt] 2.0>= and optionally
 
 ### Optional:
 
-* [lxqt-notificationd-wip] for better experience with `lxqt-notificationd` (to remove)
-* [lxqt-wlogout] for complete logout closing lxqt-session first.
 * swaybg, swaylock, swayidle for screen locking and background.
 
 ## Installation
@@ -72,16 +70,14 @@ For Arch based distributions an [AUR] package is available.
 
 * [Credit] for the original Vent theme
 
-Support: matrix channel [#labc-lxqt[(https://matrix.to/#/!JWxuqfyjxmDWUabBkv:sonoj.org/$ZBJ-PJurHTEEms0QEqnMIdKtHVXdEHpRNq7PUDe_OB4?via=matrix.org)
+Support: matrix channel [#labc-lxqt]
 
 
 [AUR]:                    https://aur.archlinux.org/packages/lxqt-labwc-session-git
-[labwc]:              https://github.com/labwc/labwc/
-[lxqt-notificationd-wip]: https://github.com/stefonarch/lxqt-notificationd/tree/wip_layer_shell_qt/
-[lxqt-panel]:             https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md
+[labwc]:                  https://github.com/labwc/labwc/
 [lxqt-session]:           https://github.com/lxqt/lxqt/
 [sfwbar]:                 https://github.com/LBCrion/sfwbar
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
-[lxqt-wlogout]:           https://github.com/stefonarch/lxqt-wlogout
 [Credit]:                 https://github.com/addy-dclxvi/openbox-theme-collections
+[#lxqt-labwc:matrix.org]:                       https://matrix.to/#/#lxqt-labwc:matrix.org
