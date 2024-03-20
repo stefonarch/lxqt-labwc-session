@@ -25,7 +25,7 @@ Use your display manager to start "LXQt Labwc".
 ## Dependencies
 
 Build dependencies are `CMake`, [lxqt] 2.0>= and optionally
-`Git` to pull latest VCS checkouts. [labwc] version 0.7.2 or higher is recommended.
+`Git` to pull latest VCS checkouts. [labwc] version 0.7.0 or higher is recommended.
 
 ### Optional:
 
@@ -50,27 +50,36 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 
 For Arch based distributions an [AUR] package is available.
 
-## Notes
+## Notes and Issues
+
+* With LXQt 2.0 no different location for labwc configuration is used anymore as
+all components have wayland support now.
+
+* Bottom and right panels have some alignment issues for tooltips and and menu popups.
 
 * LXQt lock settings do not work yet. For screenlock settings under wayland
-  please check `~/.config/lxqt-wayland/labwc/autostart`.
+  please check `~/.config/labwc/autostart`.
   
 * Some X11-only applications (example: redshift) in autostart
   can lead to high CPU usage under wayland.
-  
-* All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`. TODO
 
 * LXQt Mouse/touchpad and keyboard settings do not work but keyboard layout(s)
   will be imported or set at first run.See
-  `~/.config/lxqt-wayland/labwc/environment` and the "libinput" section in `rc.xml`.
+  `~/.config/labwc/environment` and the "libinput" section in `rc.xml`.
   
-* Mouse cursor and size are synced and can be set using "Appearance" settings, session restart required. GTK settings have to be updated after changes.
+* Mouse cursor and size are synced and can be set using "Appearance" settings,
+session restart required. GTK settings have to be updated after changes.
 
-* Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
+* Global shortcuts are handled exclusively in `~/.config/labwc/rc.xml`.
+
+* For a background image on loading and closing add
+`swaybg -i /usr/share/lxqt/wallpapers/origami-dark.png >/dev/null 2>&1 &` to
+`-/.config/labwc/autostart`. This is also the place to autostart wayland-only
+applications.
 
 * [Credit] for the original Vent theme
 
-Support: matrix channel [#labc-lxqt]
+Support: matrix channel [#lxqt-labwc:matrix.org]
 
 
 [AUR]:                    https://aur.archlinux.org/packages/lxqt-labwc-session-git
@@ -80,4 +89,4 @@ Support: matrix channel [#labc-lxqt]
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
 [Credit]:                 https://github.com/addy-dclxvi/openbox-theme-collections
-[#lxqt-labwc:matrix.org]:                       https://matrix.to/#/#lxqt-labwc:matrix.org
+[#lxqt-labwc:matrix.org]: https://matrix.to/#/#lxqt-labwc:matrix.org

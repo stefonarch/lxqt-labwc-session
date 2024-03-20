@@ -74,15 +74,10 @@ export XDG_MENU_PREFIX="lxqt-"
 
 export XDG_CURRENT_DESKTOP="LXQt:labwc:wlroots"
 
-export WAYLAND_COMPOSITOR=labwc
-
-# Create lxqt-wayland settings directory if not existing
-mkdir -p $XDG_CONFIG_HOME/lxqt-wayland
-
-# Copy default lxqt-labwc configuration if not existing
-if [[ ! -d "$XDG_CONFIG_HOME/lxqt-wayland/labwc" ]]
+# Copy default labwc configuration if not existing
+if [[ ! -d "$XDG_CONFIG_HOME/labwc" ]]
    then
-   cp -a /usr/share/lxqt/wayland/labwc "$XDG_CONFIG_HOME"/lxqt-wayland/
+   cp -av /usr/share/doc/labwc "$XDG_CONFIG_HOME"/ ## if it is in /usr/local/ ?
 fi
 
 # Import keyboard layout
@@ -102,13 +97,13 @@ LABWC_EXECUTABLE=$(which labwc)
 if [ -x "$LABWC_EXECUTABLE" ]; then
     LABWC_VERSION=$("$LABWC_EXECUTABLE" --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 # Version check for logout
-    if [ "$(printf '%s\n' "$LABWC_VERSION")" != "0.7.1" ]; then
-        exec labwc -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -s lxqt-session
-        echo "Labwc version is <= 0.7.1."
+    if [ "$(printf '%s\n' "$LABWC_VERSION")" != "0.7.2" ]; then
+        exec labwc -C $XDG_CONFIG_HOME/labwc -s lxqt-session
+        echo "Labwc version is <= 0.7.2."
     else
-        # version is greater than 0.7.1 -> use -S option for logout support
-        echo "Labwc version is > 0.7.1"
-        exec labwc -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
+        # version is greater than 0.7.2 -> use -S option for complete logout support
+        echo "Labwc version is > 0.7.2"
+        exec labwc -C $XDG_CONFIG_HOME/labwc -S lxqt-session
         # with debug:
         #exec systemd-cat --identifier=labwc labwc -d -C $XDG_CONFIG_HOME/lxqt-wayland/labwc  -S lxqt-session
     fi
