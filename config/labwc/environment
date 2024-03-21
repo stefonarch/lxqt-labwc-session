@@ -1,10 +1,12 @@
 # LXQt labwc environment file
 
 # This allows xdg-desktop-portal-wlr to function (e.g. for screen-recording)
+# XDG_CURRENT_DESKTOP is set to LXQt:labwc:wlroots at startup.
 # XDG_CURRENT_DESKTOP=wlroots
 
 # Disable hardware cursors. Most users wouldn't want to do this, but if you
 # are experiencing issues with disappearing cursors, this might fix it.
+# Autodetected at startup on virtualized hardware which use systemd
 #WLR_NO_HARDWARE_CURSORS=1
 
 # For Java applications such as JetBrains/Intellij Idea, set this variable
