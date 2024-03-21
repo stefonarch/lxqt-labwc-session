@@ -57,28 +57,34 @@
     <keybind key="A-F2">
       <action name="Execute" command="lxqt-runner" />
     </keybind>
+    <!-- For qterminal dropdown -->
     <keybind key="F12">
-      <action name="Execute" command="wlrctl toplevel focus qterminal" />
+      <action name="Execute" command="toggledropdown" />
     </keybind>
   </keyboard>
 
   <mouse>
     <default />
-    <!-- Show a custom menu on desktop right click -->
-    <context name="Root">
+    <!-- Show root menu on desktop also with right click -->
+   <context name="Root">
+      <mousebind button="Left" action="Press">
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
+      </mousebind>
       <mousebind button="Right" action="Press">
-        <action name="ShowMenu" menu="some-custom-menu" />
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
+      </mousebind>
+      <mousebind button="Middle" action="Press">
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
       </mousebind>
     </context>
   </mouse>
 
-  <!-- LXQt rules -->
-  <windowRules>
-    <windowRule identifier="lxqt-runner" skipTaskbar="yes" skipWindowSwitcher="yes">
-      <action name="ToggleAlwaysOnTop"/>
-      <action name="SnapToRegion" region="runner"/>
-    </windowRule>
-  </windowRules>
 
     <!--
     The *category* element can be set to touch, non-touch, default or the name

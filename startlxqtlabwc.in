@@ -77,7 +77,7 @@ export XDG_CURRENT_DESKTOP="LXQt:labwc:wlroots"
 # Copy default labwc configuration if not existing
 if [[ ! -d "$XDG_CONFIG_HOME/labwc" ]]
    then
-   cp -av /usr/share/doc/labwc "$XDG_CONFIG_HOME"/ ## if it is in /usr/local/ ?
+   cp -av /usr/share/lxqt/wayland/labwc "$XDG_CONFIG_HOME"/ ## if it is in /usr/local/ ?
 fi
 
 # Import keyboard layout

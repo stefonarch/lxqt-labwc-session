@@ -1,26 +1,26 @@
 # lxqt-labwc-session
 
->Files for an LXQt wayland session using the labwc compositor.<
+>Files for an LXQt wayland session using the labwc compositor.
 
+**Note**: `lxqt-panel 2.0 does not include yet the taskbar-plugin (aka window list) for wayland.
+Manual installation is possible and recommended compiling from [Github](https://github.com/LXQt-Marcus-Fork/lxqt-panel/tree/wlroots-taskbar) directly or via AUR.
+
+Alternatively  sfwbar, waybar or yatbfw can be used to provide a taskbar, see `~/.config/labwc/autostart`.
 
 Use your display manager to start "LXQt Labwc".
-`startlxqtlabwc` from tty should work too.
+`startlxqtlabwc` directly from tty works too.
 
 ## Screenshots
 
 ![LXQt-labwc dark](labwc-dark.png)
 
-* Widget style: kvantum-dark
-* LXQt style: "System"
+* LXQt style: "Valendas"
 * labwc: "Vent-dark" theme
 
 
+![LXQt-labwc dark](Labwc.png)
 
-![LXQt-labwc dark](labwc-light.png)
-
-* LXQt default settings
-* waybar #taskbar: lxqt-style-light.css
-* labwc: "Vent" theme
+* LXQt and Labwc style: "Clearlooks"
 
 ## Dependencies
 
@@ -46,36 +46,48 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 
 ```
 
+## Changes in version 0.2
+
+* With LXQt 2.0 no different location for labwc configuration is used anymore.
+All LXQt components can be configured in "Configuration Center" with some exceptions,
+see "Notes". Labwc configuration is handled in `~/.config/labwc` and panel position settings by
+right click.
+
+* Virtualized systems should be autodetected (fixing "no cursor" issue)
+
+* F12 as toggledropdown shortcut for QTerminal is working (using the shipped configuration).
+
+* Improved wallpaper.
+
 ## Packages:
 
 For Arch based distributions an [AUR] package is available.
 
+
 ## Notes and Issues
 
-* With LXQt 2.0 no different location for labwc configuration is used anymore as
-all components have wayland support now.
-
-* Bottom and right panels have some alignment issues for tooltips and and menu popups.
+* Default configuration is in `/usr/share/lxqt/wayland/labwc` and copied at first run
+if labwc was never configured. Refer to those files if you have already configured labwc.
 
 * LXQt lock settings do not work yet. For screenlock settings under wayland
-  please check `~/.config/labwc/autostart`.
-  
-* Some X11-only applications (example: redshift) in autostart
-  can lead to high CPU usage under wayland.
-
-* LXQt Mouse/touchpad and keyboard settings do not work but keyboard layout(s)
-  will be imported or set at first run.See
-  `~/.config/labwc/environment` and the "libinput" section in `rc.xml`.
-  
-* Mouse cursor and size are synced and can be set using "Appearance" settings,
-session restart required. GTK settings have to be updated after changes.
+ please check `~/.config/labwc/autostart`.
 
 * Global shortcuts are handled exclusively in `~/.config/labwc/rc.xml`.
 
-* For a background image on loading and closing add
-`swaybg -i /usr/share/lxqt/wallpapers/origami-dark.png >/dev/null 2>&1 &` to
-`-/.config/labwc/autostart`. This is also the place to autostart wayland-only
-applications.
+* Use `-/.config/labwc/autostart` to autostart wayland-only applications.
+
+* Mouse cursor and size are synced and can be set using "Appearance" settings,
+labwc restart required (`labwc -r` or ctrl-shift-R if  using the shipped configuration).
+GTK settings have to be updated after changes.
+
+* Bottom and right panels have some alignment issues for tooltips and and menu popups.
+
+* Some X11-only applications (example: redshift) in autostart
+can lead to high CPU usage under wayland.
+
+* LXQt Mouse/touchpad and keyboard settings do not work but keyboard layout(s)
+  will be imported and set at startup. See `~/.config/labwc/environment` and the
+ "libinput" section in `rc.xml`.
 
 * [Credit] for the original Vent theme
 
