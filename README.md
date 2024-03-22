@@ -7,6 +7,16 @@ Settings for 3 different taskbars are also provided.<br>
 Use your display manager to start the session.
 `startlxqtlabwc` from tty should work too.
 
+**Note**
+
+In April with LXQt 2.0 things here will improve a lot. In git and AUR are arrived
+already full wayland-compatible versions of lxqt-runner, pcmanfm-qt (for the desktop)
+ and lxqt-notificationd.
+
+Work in progress is here: [lxqt2-labwc-session](https://github.com/stefonarch/lxqt-labwc-session/tree/lxqt2-labwc-session).
+
+
+
 ## Screenshots
 
 ![LXQt-labwc dark](labwc-dark.png)
