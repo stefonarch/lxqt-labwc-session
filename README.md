@@ -1,10 +1,9 @@
 # lxqt-labwc-session
 
->Files for an experimental LXQt wayland session using the labwc compositor.<br>
-Settings for 3 different taskbars are also provided.<br>
-*Should* not interfere with existing LXQt X11 sessions.
+>Files for an LXQt wayland session using the labwc compositor.<
 
-Use your display manager to start the session.
+
+Use your display manager to start "LXQt Labwc".
 `startlxqtlabwc` from tty should work too.
 
 **Note**
@@ -23,7 +22,6 @@ Work in progress is here: [lxqt2-labwc-session](https://github.com/stefonarch/lx
 
 * Widget style: kvantum-dark
 * LXQt style: "System"
-* waybar #taskbar: lxqt-style-dark.css
 * labwc: "Vent-dark" theme
 
 
@@ -36,15 +34,12 @@ Work in progress is here: [lxqt2-labwc-session](https://github.com/stefonarch/lx
 
 ## Dependencies
 
-* `LXQt` minimum version 1.3
-* `labwc` 0.6.4 or higher; [labwc-git]
-* [sfwbar], [waybar] or [yatbfw] (needed as taskmanager)
-* [lxqt-notificationd-wip] for better experience with `lxqt-notificationd` (optional)
-* [lxqt-wlogout] for complete logout closing lxqt-session first (optional)
-* swaybg, swaylock, swayidle for screen locking and background (optional)
+Build dependencies are `CMake`, [lxqt] 2.0>= and optionally
+`Git` to pull latest VCS checkouts. [labwc] version 0.7.0 or higher is recommended.
 
-Build dependencies are `CMake`, [lxqt-session] and optionally
-`Git` to pull latest VCS checkouts.
+### Optional:
+
+* swaybg, swaylock, swayidle for screen locking and background.
 
 ## Installation
 
@@ -61,39 +56,59 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 
 ```
 
+## Changes in version 0.2
+
+* With LXQt 2.0 no different location for labwc configuration is used anymore.
+All LXQt components can be configured in "Configuration Center" with some exceptions,
+se "Notes", so Labwc configuration is handled in `~/.config/labwc`. Panel settings by
+right click.
+
+* Virtualized systems should be autodetected (fixing "no cursor" issue)
+
+* F12 as toggledropdown shortcut for QTerminal is working (using the shipped configuration).
+
+* Improved wallpaper.
+
 ## Packages:
 
 For Arch based distributions an [AUR] package is available.
 
-## Notes
 
-* In "Session Settings" **uncheck** the "Panel" module and check only
-  "Panel X11/Wayland" in order to use different settings for `lxqt-panel`
-  on wayland. Panels with a "Desktop switch" widget will crash - do not add it (fixed in LXQt 1.4).
-* **Taskbar**: The only taskbar which displays window titles with eliding is `swfbar`; waybar can show well only app names and/or icons; yatbfw displays icons only.
+## Notes and Issues
+
+* Default configuration is in `/usr/share/lxqt/wayland/labwc` and copied at first run
+if labwc was never configured. Refer to those files if you have already configured labwc.
+
 * LXQt lock settings do not work yet. For screenlock settings under wayland
-  please check `~/.config/lxqt-wayland/labwc/autostart`.
-* **Update**: To hide the panel with fullscreen applications using `<action name="ToggleAlwaysOnBottom"/>` in `~/.config/lxqt-wayland/labwc/rc.xml` "Windowrules" section is recommended
+ please check `~/.config/labwc/autostart`.
+
+* Global shortcuts are handled exclusively in `~/.config/labwc/rc.xml`.
+
+* Use `-/.config/labwc/autostart` to autostart wayland-only applications.
+
+* Mouse cursor and size are synced and can be set using "Appearance" settings,
+labwc restart required (`labwc -r` or ctrl-shift-R if  using the shipped configuration).
+GTK settings have to be updated after changes.
+
+* Bottom and right panels have some alignment issues for tooltips and and menu popups.
+
 * Some X11-only applications (example: redshift) in autostart
-  can lead to high CPU usage under wayland.
-* All options for labwc with LXQt are handled in `~/.config/lxqt-wayland/labwc/`.
+can lead to high CPU usage under wayland.
+
 * LXQt Mouse/touchpad and keyboard settings do not work but keyboard layout(s)
-  will be imported or set at first run.See
-  `~/.config/lxqt-wayland/labwc/environment` and the "libinput" section in `rc.xml`.
-* Mouse cursor and size are synced and can be set using "Appearance" settings, session restart required. GTK settings have to be updated after changes.
-* Global shortcuts are handled exclusively in `~/.config/lxqt-wayland/labwc/rc.xml`.
-* Refer also to this file for some lxqt-settings (e.g. positions)
-* Some panel plugins do not work on wayland, see [lxqt-panel] for more information.
+  will be imported and set at startup. See `~/.config/labwc/environment` and the
+ "libinput" section in `rc.xml`.
+
 * [Credit] for the original Vent theme
+
+Support: matrix channel [#lxqt-labwc:matrix.org]
 
 
 [AUR]:                    https://aur.archlinux.org/packages/lxqt-labwc-session-git
-[labwc-git]:              https://github.com/labwc/labwc/
-[lxqt-notificationd-wip]: https://github.com/stefonarch/lxqt-notificationd/tree/wip_layer_shell_qt/
-[lxqt-panel]:             https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md
-[lxqt-session]:           https://github.com/lxqt/lxqt-session/
+[labwc]:                  https://github.com/labwc/labwc/
+[lxqt-session]:           https://github.com/lxqt/lxqt/
 [sfwbar]:                 https://github.com/LBCrion/sfwbar
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
-[lxqt-wlogout]:           https://github.com/stefonarch/lxqt-wlogout
 [Credit]:                 https://github.com/addy-dclxvi/openbox-theme-collections
+[#lxqt-labwc:matrix.org]: https://matrix.to/#/#lxqt-labwc:matrix.org

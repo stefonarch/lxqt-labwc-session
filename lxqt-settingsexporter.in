@@ -2,7 +2,7 @@
 # Exports settings from lxqt-x11 session to labwc/environment
 # Executed once at session start
 echo "Importing LXQt settings into labwc..."
-labwc_settings=$XDG_CONFIG_HOME/lxqt-wayland/labwc/environment
+labwc_settings=$XDG_CONFIG_HOME/labwc/environment
 lxqt_settings=$XDG_CONFIG_HOME/lxqt/session.conf
 
 # Keyboard layouts

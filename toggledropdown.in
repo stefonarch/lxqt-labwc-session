@@ -1,0 +1,6 @@
+#!/bin/bash
+# Helper script for using qterminal -d (dropdown) under wayland
+# Add F12 as shortcut in compositor
+while IFS= read -r line; do
+    qdbus "$line" / org.lxqt.QTerminal.Process.toggleDropdown
+done < <(qdbus | grep QTermin | awk '{$1=$1};1')
