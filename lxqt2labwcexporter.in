@@ -1,5 +1,5 @@
 #!/bin/bash
-# Exports settings from lxqt-x11 session to labwc/environment
+# Exports settings from LXQt x11 session to labwc/environment
 # Executed once at session start
 echo "Importing LXQt settings into labwc..."
 labwc_settings=$XDG_CONFIG_HOME/labwc/environment

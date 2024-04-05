@@ -81,7 +81,7 @@ if [[ ! -d "$XDG_CONFIG_HOME/labwc" ]]
 fi
 
 # Import keyboard layout
-lxqt-settingsexporter
+lxqt2labwcexporter
 ## End LXQt common settings
 
 # enable cursor on VM

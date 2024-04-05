@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.5.0 FATAL_ERROR)
 project(lxqt-labwc-session)
+cmake_policy(SET CMP0160 NEW)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -56,11 +57,11 @@ set(PREDEF_XDG_DATA_DIRS "${PREDEF_XDG_DATA_DIRS}:/usr/local/share:/usr/share")
 set(PREDEF_XDG_CONFIG_DIRS "/etc:${LXQT_ETC_XDG_DIR}:/usr/share")
 #configure_file(toggledropdown.in toggledropdown @ONLY)
 configure_file(startlxqtlabwc.in startlxqtlabwc @ONLY)
-configure_file(lxqt-settingsexporter.in lxqt-settingsexporter @ONLY)
+configure_file(lxqt2labwcexporter.in lxqt2labwcexporter @ONLY)
 
 install(PROGRAMS
     "${CMAKE_CURRENT_BINARY_DIR}/startlxqtlabwc"
-    "${CMAKE_CURRENT_BINARY_DIR}/lxqt-settingsexporter"
+    "${CMAKE_CURRENT_BINARY_DIR}/lxqt2labwcexporter"
     DESTINATION "${CMAKE_INSTALL_BINDIR}"
     COMPONENT Runtime
 )
