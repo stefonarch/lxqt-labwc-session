@@ -7,7 +7,7 @@
 
 * The updated version uses the default labwc settings location now, if updating consider moving your settings to `~/.config/labwc.`
 
-* `lxqt-panel 2.0 does not include yet the taskbar-plugin (aka window list) for wayland.
+* lxqt-panel 2.0 does not include yet the taskbar-plugin (aka window list) for wayland.
 Manual installation is possible and recommended compiling from [Github](https://github.com/LXQt-Marcus-Fork/lxqt-panel/tree/wlroots-taskbar) directly or using [this PKGBUILD](https://github.com/stefonarch/LXQt-Wayland-files/tree/main/AUR/lxqt-panel).
 
 Alternatively  sfwbar, waybar or yatbfw can be used to provide a taskbar, see `~/.config/labwc/autostart`.
@@ -35,6 +35,11 @@ Build dependencies are `CMake`, [lxqt] 2.0>= and optionally
 ### Optional:
 
 * swaybg, swaylock, swayidle for screen locking and background.
+
+* [labwc-tweaks](https://github.com/labwc/labwc-tweaks): GUI for some basic configuration.
+[AUR package](https://aur.archlinux.org/packages/labwc-tweaks-git).
+
+![labwc-tweaks](labwc-tweaks.png)
 
 ## Installation
 
