@@ -3,7 +3,7 @@
 >Files for an LXQt 2.0 wayland session using the labwc compositor.
 
 
-**Note**:
+**Notes**:
 
 * The updated version uses the default labwc settings location now, if updating consider moving your settings to `~/.config/labwc.`
 
@@ -14,16 +14,6 @@ Alternatively  sfwbar, waybar or yatbfw can be used to provide a taskbar, see `~
 
 Use your display manager to start "LXQt Labwc".
 `startlxqtlabwc` directly from tty works too.
-
-**Note**
-
-In April with LXQt 2.0 things here will improve a lot. In git and AUR are arrived
-already full wayland-compatible versions of lxqt-runner, pcmanfm-qt (for the desktop)
- and lxqt-notificationd.
-
-Work in progress is here: [lxqt2-labwc-session](https://github.com/stefonarch/lxqt-labwc-session/tree/lxqt2-labwc-session).
-
-
 
 ## Screenshots
 
