@@ -16,19 +16,16 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null
 #     output eDP-1 position 0,0
 #   }
 # kanshi >/dev/null 2>&1 &
+# wdisplays can be used as well
 
-# Launch a bottom panel with a taskbar (not provided yet by lxqt-panel)
-# waybar: text and icons; yatbwf: only icons
+# Launch a bottom panel with a taskbar (if not using AUR/git lxqt-panel)
+# waybar and sfwbar: text and icons; yatbwf: only icons.
+# Example configurations in https://github.com/stefonarch/lxqt-labwc-session/tree/master/config
 
-waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s ~/.config/waybar/lxqt-style-light.css >/dev/null 2>&1 &
-# Comment above and uncomment for dark themes
-#waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s ~/.config/waybar/lxqt-style-dark.css >/dev/null 2>&1 &
+#waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s $XDG_CONFIG_HOME/waybar/lxqt-style-light.css >/dev/null 2>&1 &
+# Comment above and uncomment for dark themes:
+#waybar -c $XDG_CONFIG_HOME/waybar/taskbar.config -s $XDG_CONFIG_HOME/waybar/lxqt-style-dark.css >/dev/null 2>&1 &
 #yatbfw -c $XDG_CONFIG_HOME/yatbfw-taskbar.json >/dev/null 2>&1 &
-
-# Enable alternative notifications instead of lxqt-notificationd
-# (can be configured also in LXQt Session Settings → autostart)
-# mako >/dev/null 2>&1 &
-# dunst >/dev/null 2>&1 &
 
 # Turn off display(s) after 10 minutes
 #

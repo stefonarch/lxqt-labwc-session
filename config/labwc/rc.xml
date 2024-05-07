@@ -21,6 +21,12 @@
       <slant>normal</slant>
       <weight>bold</weight>
     </font>
+    <font place="InActiveWindow">
+      <name>sans</name>
+      <size>13</size>
+      <slant>normal</slant>
+      <weight>bold</weight>
+    </font>
     <font place="MenuItem">
       <name>sans</name>
       <size>12</size>
@@ -57,52 +63,34 @@
     <keybind key="A-F2">
       <action name="Execute" command="lxqt-runner" />
     </keybind>
+    <!-- For qterminal dropdown -->
     <keybind key="F12">
-      <action name="Execute" command="wlrctl toplevel focus qterminal" />
+      <action name="Execute" command="toggledropdown" />
     </keybind>
   </keyboard>
 
   <mouse>
     <default />
-    <!-- Show a custom menu on desktop right click -->
-    <context name="Root">
+    <!-- Show root menu on desktop also with right click -->
+   <context name="Root">
+      <mousebind button="Left" action="Press">
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
+      </mousebind>
       <mousebind button="Right" action="Press">
-        <action name="ShowMenu" menu="some-custom-menu" />
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
+      </mousebind>
+      <mousebind button="Middle" action="Press">
+        <action name="ShowMenu">
+          <menu>root-menu</menu>
+        </action>
       </mousebind>
     </context>
   </mouse>
 
-  <!-- LXQt settings -->
-  <!-- space for top panel -->
-  <margin top="38"/>
-
-  <!-- positions for lxqt-runner and notifications-->
-  <regions>
-    <region name="notifications" x="70%" y="0%" height="50%" width="50%"/>
-    <region name="runner" x="40%" y="20%" height="1%" width="20%"/>
-  </regions>
-  <!-- LXQt rules -->
-  <windowRules>
-    <!-- For both a top and a left panel, if desired, remove MatchOnce="true".
-    Panel configuration windows will open at top left corner using this setting.
-    Other positions are not recommended -->
-    <windowRule identifier="lxqt-panel" skipTaskbar="yes" skipWindowSwitcher="yes" MatchOnce="true" fixedPosition="yes">
-      <action name="ToggleAlwaysOnBottom"/>
-      <action name="MoveTo" x="0" y="0"/>
-      <action name="ToggleKeybinds"/>
-    </windowRule>
-    <windowRule identifier="lxqt-runner" skipTaskbar="yes" skipWindowSwitcher="yes">
-      <action name="ToggleAlwaysOnTop"/>
-      <action name="SnapToRegion" region="runner"/>
-    </windowRule>
-    <windowRule title="pcmanfm-desktop*" skipTaskbar="yes" skipWindowSwitcher="yes">
-      <action name="ToggleAlwaysOnBottom"/>
-      <action name="Maximize"/>
-    </windowRule>
-    <windowRule identifier="lxqt-notificationd" skipTaskbar="yes" skipWindowSwitcher="yes">
-      <action name="SnapToRegion" region="notifications"/>
-    </windowRule>
-  </windowRules>
 
     <!--
     The *category* element can be set to touch, non-touch, default or the name

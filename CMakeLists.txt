@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5.0 FATAL_ERROR)
 project(lxqt-labwc-session)
+cmake_policy(SET CMP0160 NEW)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -11,7 +12,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Minimum Versions
-set(LXQT_MINIMUM_VERSION "1.3.0")
+set(LXQT_MINIMUM_VERSION "2.0.0")
 
 find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 #find_package(Labwc REQUIRED)
@@ -24,7 +25,7 @@ find_package(PkgConfig REQUIRED)
 # Patch Version
 set(LXQT_LABWC_SESSION_PATCH_VERSION 0)
 
-set(LXQT_WAYLAND_SESSION_VERSION 0.1)
+set(LXQT_LABWC_SESSION_VERSION 0.2)
 add_definitions(
     "-DLXQT_LABWC_SESSION_VERSION=\"${LXQT_LABWC_SESSION_VERSION}\""
 )
@@ -32,10 +33,20 @@ add_definitions(
 include(LXQtPreventInSourceBuilds)
 include(LXQtCompilerSettings NO_POLICY_SCOPE)
 include(GNUInstallDirs)
-
-# merged from lxqt-common
 include(LXQtConfigVars)
 file(GLOB DESKTOP_FILES_IN *.desktop.in)
+
+find_program(LABWC_EXECUTABLE labwc)
+
+if(LABWC_EXECUTABLE)
+    execute_process(
+        COMMAND ${LABWC_EXECUTABLE} --version
+        OUTPUT_VARIABLE LABWC_VERSION
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    message("Found labwc version: ${LABWC_VERSION}")
+endif()
+
 
 # startlxqt<compositor> scripts
 set(PREDEF_XDG_DATA_DIRS "$XDG_DATA_HOME")
@@ -44,15 +55,13 @@ if(NOT("${LXQT_DATA_DIR}" MATCHES "^/usr(/local)?/share$"))
 endif()
 set(PREDEF_XDG_DATA_DIRS "${PREDEF_XDG_DATA_DIRS}:/usr/local/share:/usr/share")
 set(PREDEF_XDG_CONFIG_DIRS "/etc:${LXQT_ETC_XDG_DIR}:/usr/share")
+#configure_file(toggledropdown.in toggledropdown @ONLY)
 configure_file(startlxqtlabwc.in startlxqtlabwc @ONLY)
-configure_file(lxqt-panelloader.in lxqt-panelloader @ONLY)
-configure_file(lxqt-settingsexporter.in lxqt-settingsexporter @ONLY)
-
+configure_file(lxqt2labwcexporter.in lxqt2labwcexporter @ONLY)
 
 install(PROGRAMS
     "${CMAKE_CURRENT_BINARY_DIR}/startlxqtlabwc"
-    "${CMAKE_CURRENT_BINARY_DIR}/lxqt-panelloader"
-    "${CMAKE_CURRENT_BINARY_DIR}/lxqt-settingsexporter"
+    "${CMAKE_CURRENT_BINARY_DIR}/lxqt2labwcexporter"
     DESTINATION "${CMAKE_INSTALL_BINDIR}"
     COMPONENT Runtime
 )
@@ -77,9 +86,6 @@ install(FILES
 
 # default config files for compositors
 add_subdirectory(config)
-
-# lxqt-module for lxqt-panelloader
-add_subdirectory(autostart)
 
 # wallpaper
 add_subdirectory(wallpaper)
