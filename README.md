@@ -1,9 +1,14 @@
 # lxqt-labwc-session
 
->Files for an LXQt wayland session using the labwc compositor.
+>Files for an LXQt 2.0 wayland session using the labwc compositor.
 
-**Note**: `lxqt-panel 2.0 does not include yet the taskbar-plugin (aka window list) for wayland.
-Manual installation is possible and recommended compiling from [Github](https://github.com/LXQt-Marcus-Fork/lxqt-panel/tree/wlroots-taskbar) directly or via AUR.
+
+**Note**:
+
+* The updated version uses the default labwc settings location now, if updating consider moving your settings to `~/.config/labwc.`
+
+* `lxqt-panel 2.0 does not include yet the taskbar-plugin (aka window list) for wayland.
+Manual installation is possible and recommended compiling from [Github](https://github.com/LXQt-Marcus-Fork/lxqt-panel/tree/wlroots-taskbar) directly or using [this PKGBUILD](https://github.com/stefonarch/LXQt-Wayland-files/tree/main/AUR/lxqt-panel).
 
 Alternatively  sfwbar, waybar or yatbfw can be used to provide a taskbar, see `~/.config/labwc/autostart`.
 
@@ -25,7 +30,7 @@ Use your display manager to start "LXQt Labwc".
 ## Dependencies
 
 Build dependencies are `CMake`, [lxqt] 2.0>= and optionally
-`Git` to pull latest VCS checkouts. [labwc] version 0.7.0 or higher is recommended.
+`Git` to pull latest VCS checkouts. [labwc] version 0.7.1 or higher is recommended.
 
 ### Optional:
 
@@ -50,7 +55,7 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 
 * With LXQt 2.0 no different location for labwc configuration is used anymore.
 All LXQt components can be configured in "Configuration Center" with some exceptions,
-see "Notes". Labwc configuration is handled in `~/.config/labwc` and panel position settings by
+see "Notes" below. Labwc configuration is handled in `~/.config/labwc` and panel position settings by
 right click.
 
 * Virtualized systems should be autodetected (fixing "no cursor" issue)
