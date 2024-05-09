@@ -55,6 +55,14 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 # Prefer creating a package for your distro instead of using sudo make install
 
 ```
+## Replacements for not (yet) working LXQt elements
+
+* Monitor Settings → [wdisplays]
+* Global Shortcuts, Input Settings → `/.config/labwc/rc.xml`
+* Lock Screen → `swaylock` in `/.config/labwc/autostart`
+* ScreenGrab (Screenshots) → [Wshot]
+* Colorpicker → [hyprpicker]
+* See also [lxqt-panel]
 
 ## Changes in version 0.2
 
@@ -62,6 +70,8 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 All LXQt components can be configured in "Configuration Center" with some exceptions,
 see "Notes" below. Labwc configuration is handled in `~/.config/labwc` and panel position settings by
 right click.
+
+* Detection of labwc version: with version 0.7.2 and later `lxqt-session` will close also labwc when exiting.
 
 * Virtualized systems should be autodetected (fixing "no cursor" issue)
 
@@ -72,7 +82,6 @@ right click.
 ## Packages:
 
 For Arch based distributions an [AUR] package is available.
-
 
 ## Notes and Issues
 
@@ -101,7 +110,7 @@ can lead to high CPU usage under wayland.
 
 * [Credit] for the original Vent theme
 
-Support: matrix channel [#lxqt-labwc:matrix.org]
+* See also [lxqt-wayland-files]
 
 
 [AUR]:                    https://aur.archlinux.org/packages/lxqt-labwc-session-git
@@ -111,4 +120,8 @@ Support: matrix channel [#lxqt-labwc:matrix.org]
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
 [Credit]:                 https://github.com/addy-dclxvi/openbox-theme-collections
-[#lxqt-labwc:matrix.org]: https://matrix.to/#/#lxqt-labwc:matrix.org
+[wdisplays]:              https://github.com/artizirk/wdisplays
+[Wshot]:                  https://github.com/qtilities/wshot
+[hyprpicker]:             https://github.com/hyprwm/hyprpicker
+[lxqt-wayland-files]:     https://github.com/stefonarch/LXQt-Wayland-files/
+[lxqt-panel]:             https://github.com/stefonarch/LXQt-Wayland-files/blob/main/lxqt-panel.md
