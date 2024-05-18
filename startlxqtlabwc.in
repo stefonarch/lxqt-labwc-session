@@ -92,7 +92,7 @@ echo "Running on virtualized hardware"
 fi
 
 # Find labwc executable
-whereis labwc | awk '{print $2}'
+LABWC_EXECUTABLE=`which labwc`
 if [ -x "$LABWC_EXECUTABLE" ]; then
 LABWC_VERSION=$("$LABWC_EXECUTABLE" --version | cut -c 7-11 | tr -d '.')
     echo "$LABWC_VERSION"

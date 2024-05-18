@@ -41,6 +41,6 @@ swayidle -w \
 	resume 'wlopm --on \*' \
 	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
 
-Lock screen on resume, no display(s) turned off
+# Lock screen on resume, no display(s) turned off
 # swayidle -w before-sleep 'swaylock -f -c 000000'
 
