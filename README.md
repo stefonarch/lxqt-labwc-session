@@ -1,19 +1,20 @@
 # lxqt-labwc-session
 
->Files for an LXQt 2.0 wayland session using the labwc compositor.
+>Files for an LXQt Wayland standalone session using the labwc compositor.
 
 
 **Notes**:
 
 * The updated version uses the default labwc settings location now, if updating consider moving your settings to `~/.config/labwc.`
 
-* lxqt-panel 2.0 does not include yet the taskbar-plugin (aka window list) for wayland.
-Manual installation is possible and recommended compiling from [Github](https://github.com/LXQt-Marcus-Fork/lxqt-panel/tree/wlroots-taskbar) directly or using [this PKGBUILD](https://github.com/stefonarch/LXQt-Wayland-files/tree/main/AUR/lxqt-panel).
+* lxqt-panel v2.0 does not include the taskbar-plugin (aka window list) for Wayland, using [lxqt-panel-git](https://aur.archlinux.org/packages/lxqt-panel-git) is recommended until LXQt 2.1 is released. Alternatively sfwbar, waybar or yatbfw can be used to provide a taskbar, see `~/.config/labwc/autostart`.
 
-Alternatively  sfwbar, waybar or yatbfw can be used to provide a taskbar, see `~/.config/labwc/autostart`.
+* Consider using [lxqt-wayland-session](https://github.com/lxqt/lxqt-wayland-session/) which supports 6 compositors. See
+ the [Wiki](https://github.com/lxqt/lxqt/wiki/ConfigWaylandSettings) for details.
 
 Use your display manager to start "LXQt Labwc".
 `startlxqtlabwc` directly from tty works too.
+
 
 ## Screenshots
 
@@ -57,7 +58,7 @@ cmake ..  -DCMAKE_INSTALL_PREFIX=/usr  -DCMAKE_BUILD_TYPE=Debug && make -j4
 ```
 ## Replacements for not (yet) working LXQt elements
 
-* Monitor Settings → [wdisplays]
+* Monitor Settings → [kanshi]
 * Global Shortcuts, Input Settings → `/.config/labwc/rc.xml`
 * Lock Screen → `swaylock` in `/.config/labwc/autostart`
 * ScreenGrab (Screenshots) → [Wshot]
@@ -120,7 +121,7 @@ can lead to high CPU usage under wayland.
 [yatbfw]:                 https://github.com/selairi/yatbfw/
 [waybar]:                 https://github.com/Alexays/Waybar/
 [Credit]:                 https://github.com/addy-dclxvi/openbox-theme-collections
-[wdisplays]:              https://github.com/artizirk/wdisplays
+[kanshi]:                 https://sr.ht/~emersion/kanshi/
 [Wshot]:                  https://github.com/qtilities/wshot
 [hyprpicker]:             https://github.com/hyprwm/hyprpicker
 [lxqt-wayland-files]:     https://github.com/stefonarch/LXQt-Wayland-files/
