@@ -2,6 +2,11 @@
 
 >Files for an LXQt Wayland standalone session using the labwc compositor.
 
+## Archived repository
+
+LXQt 2.1 has been released in November 5th with support for LabWc and many others.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **Notes**:
 
